@@ -1,7 +1,7 @@
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 
 // theme
 import ThemeProvider from "./theme";

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Login.css";
+
 const TutorSignupPage = () => {return (
   <div className="vector-parent">
     <img className="frame-child-t" alt="" src="/rectangle-88.svg" />

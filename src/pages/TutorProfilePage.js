@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { styled } from '@mui/material';
+// import { styled } from '@mui/material';
 import {
+    styled,
     Card,
     Grid,
     Table,
@@ -76,9 +77,7 @@ export default function TutorProfilePage() {
                     <Typography variant='button' sx={{fontWeight:200}}>
                         Male, 30 Years
                     </Typography>
-                    <Typography variant='h6'>
-                        
-                    </Typography>
+                
                 </Grid>
                 <Grid>
                     <Typography variant='h3'>

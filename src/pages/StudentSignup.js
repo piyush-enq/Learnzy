@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Login.css";
+
 const StudentSignupPage = () => {
   return (
     <div className="vector-parent">

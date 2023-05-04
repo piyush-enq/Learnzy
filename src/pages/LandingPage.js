@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import "./LandingPage.css";
+
 const LandingPage = () => {
   return (
     <div className="landing-page">
