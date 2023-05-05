@@ -13,11 +13,11 @@ import {
     Typography,
     TextField,
 } from '@mui/material';
-import { height } from '@mui/system';
+import { bgcolor, height } from '@mui/system';
+import { purple } from '@mui/material/colors';
 
 
 export default function TutorProfilePage() {
-
 
     const ProfilePic = styled('img')`
     width: 200px;
@@ -27,7 +27,7 @@ export default function TutorProfilePage() {
   `;
 
     ProfilePic.defaultProps = {
-        src: '/assets/images/tutors/tutor_11.jpg',
+        src: '/assets/images/students/student_7.jpg',
     };
 
 
@@ -48,10 +48,10 @@ export default function TutorProfilePage() {
 
 
     const [teacher, setTeacher] = useState({
-        name: 'Aakash Sharma',
-        location: 'Bengaluru',
-        gender: 'Male',
-        age: '20',
+        name: 'Ramya Priya',
+        class: '11th Grade',
+        gender: 'Female',
+        age: '17',
         subject: 'MATHEMATICS',
         bio: 'My self Aakash Sharma, I am passionate and experienced math teacher with 8 years of experience. My love for mathematics started at a young age. After completing my studies, I began my career as a math teacher, and since then, I have been inspiring and motivating students to love and appreciate math.',
         rate: '300',
@@ -115,12 +115,12 @@ export default function TutorProfilePage() {
                     </Grid>
                     <Grid xs={12} sm={6} item>
                         <TextField
-                            type='text'
-                            name='location'
-                            label='Location'
-                            placeholder='Enter Location'
+                            type='number'
+                            name='class'
+                            label='Class'
+                            placeholder='Enter Class'
                             variant='outlined'
-                            value={teacher.location}
+                            value={teacher.number.min(1).max(12)}
                             fullWidth
                             onChange={handleInputChange}
                         />
@@ -228,10 +228,13 @@ export default function TutorProfilePage() {
                             {teacher.name}
                         </Typography>
                         <Typography variant='h6' sx={{ fontWeight: 500 }}>
-                            {teacher.location}, India
+                            {teacher.class}
+                        </Typography>
+                        <Typography variant='h6' sx={{ fontWeight: 500 }}>
+                            {teacher.gender}, India
                         </Typography>
                         <Typography variant='h5'>
-                            {teacher.experience} of {teacher.subject} EDUCATOR - Specialized in IIT-JEE || SAT || AP || GRE || CBSE || ISC || IGCSE || IB
+                            {teacher.experience} of {teacher.subject} 
                         </Typography>
                         <Typography variant='h5' sx={{ fontWeight: 700, marginTop: 2 }} >
                             Bio
@@ -242,10 +245,7 @@ export default function TutorProfilePage() {
                     </Grid>
                 </Grid>
                 <Grid container spacing={4} sx={{ marginTop: 2 }} justifyContent="ceter" alignItems="center">
-                    <Grid item xs={3} >
-                        <Typography variant='button' sx={{ fontWeight: 200 }}>
-                            {teacher.gender}, {teacher.age} Years
-                        </Typography>
+                    <Grid item xs={3} > 
                         <Typography variant='h6'>
                             {teacher.subject}
                         </Typography>

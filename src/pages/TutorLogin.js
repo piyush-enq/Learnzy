@@ -24,7 +24,7 @@ const TutorLoginPage = () => {
         <div className="button-child" />
         <div className="log-in">
         <Link
-              to="/dash"
+              to="/tutordash/app"
               style={{ color: "inherit", textDecoration: "none" }}
             >
               Sign In

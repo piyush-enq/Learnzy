@@ -17,14 +17,19 @@ const navConfig = [
     icon: icon('ic_user'),
   },
   {
-    title: 'Students',
+    title: 'My Students',
     path: '/tutordash/students',
     icon: icon('student-person-svgrepo-com'),
   },
   {
+    title: 'Assignments',
+    path: '/tutordash/assignments',
+    icon: icon('assignment-svg'),
+  },
+  {
     title: 'Payments',
     path: '/tutordash/payments',
-    icon: icon('ic_user'),
+    icon: icon('payment-card-svg'),
   },
   // {
   //   title: 'blog',

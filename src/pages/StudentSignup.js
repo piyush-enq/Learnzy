@@ -20,7 +20,7 @@ const StudentSignupPage = () => {
       <button className="button-t">
         <div className="button-child-s" />
         <div className="log-in">
-          <Link to="/studentdash" style={{ color: "inherit", textDecoration: "none" }}>
+          <Link to="/studentdash/app" style={{ color: "inherit", textDecoration: "none" }}>
             Sign Up
           </Link>
         </div>

@@ -19,7 +19,7 @@ const TutorSignupPage = () => {return (
     <button className="button-t">
       <div className="button-child-s" />
       <div className="log-in">
-        <Link to="/dash" style={{ color: "inherit", textDecoration: "none" }}>
+        <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
           Sign Up
         </Link>
       </div>

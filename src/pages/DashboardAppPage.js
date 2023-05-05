@@ -170,9 +170,9 @@ export default function DashboardAppPage() {
                 time: faker.date.past(),
               }))}
             />
-          </Grid> */}
+          </Grid> */
 
-          {/* <Grid item xs={12} md={6} lg={4}>
+          <Grid item xs={12} md={6} lg={4}>
             <AppTrafficBySite
               title="Traffic by Site"
               list={[
@@ -198,7 +198,7 @@ export default function DashboardAppPage() {
                 },
               ]}
             />
-          </Grid> */}
+          </Grid> }
 
           {/* <Grid item xs={12} md={6} lg={8}>
             <AppTasks

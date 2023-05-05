@@ -10,11 +10,16 @@ import StudentsPage from './pages/StudentsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
 
 import StudentDashAppPage from './pages/StudentDashAppPage';
+import StudentProfilePage from './pages/StudentProfilePage';
+import StudentTutorListPage from './pages/StudentTutorListPage';
+import StudentAssignPage from './pages/StudentAssignPage';
 
 import TutorDashAppPage from './pages/TutorDashAppPage';
 import TutorProfilePage from './pages/TutorProfilePage';
 import TutorsPage from './pages/TutorsPage';
 import TutorLogin from "./pages/TutorLogin";
+import TutorAssignPage from './pages/TutorAssignPage';
+import MyTutorsPage from './pages/MyTutorsPage';
 
 import LandingPage from "./pages/LandingPage";
 import StudentLogin from "./pages/StudentLogin";
@@ -33,25 +38,27 @@ const AppRouter = () => {
       <Route path="/AdminLogin" element={<AdminLogin />} />
       <Route path="/StudentSignup" element={<StudentSignup />} />
       <Route path="/TutorSignup" element={<TutorSignup />} />
-      <Route path="/dashboard/*" element={<DashboardLayout />}> 
+      <Route path="/dashboard/*" element={<DashboardLayout />}>
         <Route path="app" element={<DashboardAppPage />} />
         <Route path="user" element={<UserPage />} />
-        <Route path="students" element={<StudentsPage/>} />
+        <Route path="students" element={<StudentsPage />} />
         <Route path="tutors" element={<TutorsPage />} />
       </Route>
-      <Route path='/studentdash/*' element={<StudentDashLayout/>}>
+      <Route path='/studentdash/*' element={<StudentDashLayout />}>
         <Route path="app" element={<StudentDashAppPage />} />
-        <Route path="myprofile" element={<UserPage />} />
-        <Route path="mytutors" element={<StudentsPage/>} />
-        <Route path="payments" element={<TutorsPage />} />
+        <Route path="myprofile" element={<StudentProfilePage />} />
+        <Route path="mytutors" element={<MyTutorsPage />} />
+        <Route path="tutorlist" element={<StudentTutorListPage />} />
+        <Route path="assignments" element={<StudentAssignPage/>} />
       </Route>
-      <Route path='/tutordash/*' element={<TutorDashLayout/>}>
+      <Route path='/tutordash/*' element={<TutorDashLayout />}>
         <Route path="app" element={<TutorDashAppPage />} />
         <Route path="myprofile" element={<TutorProfilePage />} />
-        <Route path="students" element={<StudentsPage/>} />
+        <Route path="students" element={<StudentsPage />} />
+        <Route path="assignments" element={<TutorAssignPage />} />
         <Route path="payments" element={<TutorsPage />} />
       </Route>
-      
+
     </Routes>
   );
 };
