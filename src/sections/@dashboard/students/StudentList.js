@@ -9,10 +9,10 @@ StudentList.propTypes = {
   Students: PropTypes.array.isRequired,
 };
 
-export default function StudentList({ Students}) {
+export default function StudentList({ students}) {
   return (
     <Grid container spacing={3}>
-      {Students.map((student) => (
+      {students.map((student) => (
         <Grid key={student.id} item xs={12} sm={6} md={3}>
           <ShopStudentCard student={student} />
         </Grid>
