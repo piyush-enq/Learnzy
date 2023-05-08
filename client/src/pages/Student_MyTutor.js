@@ -42,7 +42,7 @@ const TABLE_HEAD = [
   { id: 'city', label: 'City', alignRight: false },
   { id: 'subject', label: 'Subject', alignRight: false },
 //   { id: 'isVerified', label: 'Verified', alignRight: false },
-  { id: 'select', label: 'Select', alignRight:false },
+  { id: 'status', label: 'Status', alignRight:false },
   // { id: '' },
 ];
 
@@ -108,7 +108,6 @@ export default function StudentTutorListPage() {
     setOrderBy(property);
   };
 
-  //select all
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
       const newSelecteds = USERLIST.map((n) => n.name);
