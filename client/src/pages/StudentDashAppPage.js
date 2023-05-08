@@ -48,7 +48,7 @@ export default function StudentDashAppPage() {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Tutors to be reviewed" total={10} color="error" icon={'mdi:user-check'} />
+            <AppWidgetSummary title="Assignments Left" total={4} color="error" icon={'mdi:user-check'} />
           </Grid>
 
           {/* <Grid item xs={12} md={6} lg={8}>
