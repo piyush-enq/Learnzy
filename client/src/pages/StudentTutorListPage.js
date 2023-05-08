@@ -3,8 +3,8 @@ import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState } from 'react';
 
-// @mui
 import {
+  Alert,
   Card,
   Table,
   Stack,
@@ -237,7 +237,9 @@ const handleDenyTeacher=(id)=>{
 
                         <TableCell align="center">
                           <Stack direction="row" alignItems="center" justifyContent="space-between">
-                            <CustomButton onClick={()=>alert('Approved!')}>
+                            <CustomButton onClick={()=>{
+                              <Alert severity='info'>{name} has been selected!</Alert>
+                            }}>
                               Select
                             </CustomButton>
                             {/* <Button variant="outlined" color="error" onClick={()=>alert('Denied!')}>
