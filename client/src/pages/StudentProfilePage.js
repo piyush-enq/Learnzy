@@ -49,7 +49,7 @@ export default function TutorProfilePage() {
 
     const [teacher, setTeacher] = useState({
         name: 'Ramya Priya',
-        class: '11th Grade',
+        class: '11',
         gender: 'Female',
         age: '17',
         subject: 'MATHEMATICS',
@@ -90,7 +90,7 @@ export default function TutorProfilePage() {
                 </Typography>
                 <Grid container spacing={3}>
                     <Grid xs={12} sm={12} item>
-                        <Typography variant='h6' sx={{mb:1}}>
+                        <Typography variant='h6' sx={{ mb: 1 }}>
                             Update Photo
                         </Typography>
                         <TextField
@@ -109,7 +109,7 @@ export default function TutorProfilePage() {
                             variant='outlined'
                             value={teacher.name}
                             fullWidth
-                            
+
                             onChange={handleInputChange}
                         />
                     </Grid>
@@ -120,8 +120,9 @@ export default function TutorProfilePage() {
                             label='Class'
                             placeholder='Enter Class'
                             variant='outlined'
-                            value={teacher.number.min(1).max(12)}
+                            value={teacher.class}
                             fullWidth
+                            inputProps={{ min: 1, max: 12 }}
                             onChange={handleInputChange}
                         />
                     </Grid>
@@ -199,7 +200,7 @@ export default function TutorProfilePage() {
                     </Grid>
                     <Grid xs={12} sm={12} item>
                         <Button
-                            sx={{ margin: 2,padding:1 , justifyContent:'left', backgroundColor: '#a200ff' }}
+                            sx={{ margin: 2, padding: 1, justifyContent: 'left', backgroundColor: '#a200ff' }}
                             variant="contained"
                             onClick={handleSubmit}>
                             Save Profile
@@ -221,20 +222,20 @@ export default function TutorProfilePage() {
                 </Typography>
                 <Grid container spacing={2} alignItems='center'>
                     <Grid item xs={4}>
-                        <ProfilePic  sx={{ backgroundColor: 'gray' }} />
+                        <ProfilePic sx={{ backgroundColor: 'gray' }} />
                     </Grid>
                     <Grid item xs={8}>
                         <Typography variant='h3' sx={{ mb: 1, color: '#9100e6' }} >
                             {teacher.name}
                         </Typography>
                         <Typography variant='h6' sx={{ fontWeight: 500 }}>
-                            {teacher.class}
+                            {teacher.class}th Grade
                         </Typography>
                         <Typography variant='h6' sx={{ fontWeight: 500 }}>
                             {teacher.gender}, India
                         </Typography>
                         <Typography variant='h5'>
-                            {teacher.experience} of {teacher.subject} 
+                            {teacher.experience} of {teacher.subject}
                         </Typography>
                         <Typography variant='h5' sx={{ fontWeight: 700, marginTop: 2 }} >
                             Bio
@@ -245,7 +246,7 @@ export default function TutorProfilePage() {
                     </Grid>
                 </Grid>
                 <Grid container spacing={4} sx={{ marginTop: 2 }} justifyContent="ceter" alignItems="center">
-                    <Grid item xs={3} > 
+                    <Grid item xs={3} >
                         <Typography variant='h6'>
                             {teacher.subject}
                         </Typography>
