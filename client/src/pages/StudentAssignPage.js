@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import { CardContent, styled, TextField } from '@mui/material';
 import { useState, forwardRef } from 'react';
 import {
@@ -10,9 +11,13 @@ import {
 }
     from '@mui/material';
 import Label from '../components/label';
+=======
+import { Link } from "react-router-dom";
 
-import Iconify from '../components/iconify';
+>>>>>>> 994924289600537fe9f831d58b35f1781e49f39c
 
+
+<<<<<<< HEAD
 export default function StudentAssignPage() {
 
     return (
@@ -38,5 +43,24 @@ export default function StudentAssignPage() {
                 </Button> */}
             </CardContent>
         </Card>
+=======
+
+const StudentAssignPage = () => {
+    return (
+
+        <div >
+
+            <h4>HIII this is student seected tutors </h4>
+
+        </div>
+
+>>>>>>> 994924289600537fe9f831d58b35f1781e49f39c
     );
-}
+
+};
+
+
+
+
+
+export default StudentAssignPage;

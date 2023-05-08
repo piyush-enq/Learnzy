@@ -36,19 +36,19 @@ export default function StudentDashAppPage() {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Total Subjects taken" total={5} icon={'ant-design:team'} />
+            <AppWidgetSummary title="Total Tutors" total={714} icon={'ant-design:team'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="New Tutor this month" total={2} color="info" icon={'ant-design:user-add-outlined'} />
+            <AppWidgetSummary title="New Tutors this month" total={13} color="info" icon={'ant-design:user-add-outlined'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Total tutors assigned" total={3} color="warning" icon={'mdi:user'} />
+            <AppWidgetSummary title="Total Students" total={1723} color="warning" icon={'mdi:user'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Assignments Left" total={4} color="error" icon={'mdi:user-check'} />
+            <AppWidgetSummary title="Tutors to be reviewed" total={10} color="error" icon={'mdi:user-check'} />
           </Grid>
 
           {/* <Grid item xs={12} md={6} lg={8}>
@@ -128,18 +128,18 @@ export default function StudentDashAppPage() {
             />
           </Grid> */}
 
-          <Grid item xs={12} md={6} lg={4}>
+          {/* <Grid item xs={12} md={6} lg={4}>
             <AppCurrentSubject
               title="Current Subject"
-              chartLabels={['English', 'Physics', 'Math']}
+              chartLabels={['English', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
               chartData={[
-                { name: 'Test 1', data: [80, 50, 30, 40, 100, 20] },
-                { name: 'Test 2', data: [20, 30, 40, 80, 20, 80] },
-                { name: 'Test 3', data: [44, 76, 78, 13, 43, 10] },
+                { name: 'Series 1', data: [80, 50, 30, 40, 100, 20] },
+                { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
+                { name: 'Series 3', data: [44, 76, 78, 13, 43, 10] },
               ]}
               chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
             />
-          </Grid>
+          </Grid> */}
 
           {/* <Grid item xs={12} md={6} lg={8}>
             <AppNewsUpdate
@@ -200,18 +200,18 @@ export default function StudentDashAppPage() {
             />
           </Grid> */}
 
-          <Grid item xs={12} md={6} lg={8}>
+          {/* <Grid item xs={12} md={6} lg={8}>
             <AppTasks
-              title="To-Do List"
+              title="Tasks"
               list={[
-                { id: '1', label: 'Complete Integration Questions.' },
-                { id: '2', label: 'Practise Graphs and Algorithms.' },
-                { id: '3', label: 'To start Co-ordinate Geometry.' },
-                { id: '4', label: 'Practise Alegbra for test.' },
-                { id: '5', label: 'Will Do Statistics in August.' },
+                { id: '1', label: 'Create FireStone Logo' },
+                { id: '2', label: 'Add SCSS and JS files if required' },
+                { id: '3', label: 'Stakeholder Meeting' },
+                { id: '4', label: 'Scoping & Estimations' },
+                { id: '5', label: 'Sprint Showcase' },
               ]}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
     </>

@@ -3,8 +3,8 @@ import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState } from 'react';
 
+// @mui
 import {
-  Alert,
   Card,
   Table,
   Stack,
@@ -42,7 +42,7 @@ const TABLE_HEAD = [
   { id: 'city', label: 'City', alignRight: false },
   { id: 'subject', label: 'Subject', alignRight: false },
 //   { id: 'isVerified', label: 'Verified', alignRight: false },
-  { id: 'select', label: 'Select', alignRight:false },
+  { id: 'status', label: 'Status', alignRight:false },
   // { id: '' },
 ];
 
@@ -108,7 +108,6 @@ export default function StudentTutorListPage() {
     setOrderBy(property);
   };
 
-  //select all
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
       const newSelecteds = USERLIST.map((n) => n.name);
@@ -238,9 +237,7 @@ const handleDenyTeacher=(id)=>{
 
                         <TableCell align="center">
                           <Stack direction="row" alignItems="center" justifyContent="space-between">
-                            <CustomButton onClick={()=>{
-                              <Alert severity='info'>{name} has been selected!</Alert>
-                            }}>
+                            <CustomButton onClick={()=>alert('Approved!')}>
                               Select
                             </CustomButton>
                             {/* <Button variant="outlined" color="error" onClick={()=>alert('Denied!')}>
