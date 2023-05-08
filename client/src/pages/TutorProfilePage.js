@@ -49,7 +49,6 @@ export default function TutorProfilePage() {
 
     const [teacher, setTeacher] = useState({
         name: 'Aakash Sharma',
-        email:'aakashsharma88@gmail.com',
         location: 'Bengaluru',
         gender: 'Male',
         age: '20',
@@ -109,19 +108,6 @@ export default function TutorProfilePage() {
                             placeholder='Enter Name'
                             variant='outlined'
                             value={teacher.name}
-                            fullWidth
-                            
-                            onChange={handleInputChange}
-                        />
-                    </Grid>
-                    <Grid xs={12} sm={6} item>
-                        <TextField
-                            type='email'
-                            label='Email'
-                            name='email'
-                            placeholder='Enter Email'
-                            variant='outlined'
-                            value={teacher.email}
                             fullWidth
                             
                             onChange={handleInputChange}
@@ -241,9 +227,6 @@ export default function TutorProfilePage() {
                         <Typography variant='h3' sx={{ mb: 1, color: '#9100e6' }} >
                             {teacher.name}
                         </Typography>
-                        <Typography variant='h6' sx={{ mb: 1}} >
-                            {teacher.email}
-                        </Typography>
                         <Typography variant='h6' sx={{ fontWeight: 500 }}>
                             {teacher.location}, India
                         </Typography>
@@ -260,7 +243,7 @@ export default function TutorProfilePage() {
                 </Grid>
                 <Grid container spacing={4} sx={{ marginTop: 2 }} justifyContent="ceter" alignItems="center">
                     <Grid item xs={3} >
-                        <Typography variant='button' >
+                        <Typography variant='button' sx={{ fontWeight: 200 }}>
                             {teacher.gender}, {teacher.age} Years
                         </Typography>
                         <Typography variant='h6'>
