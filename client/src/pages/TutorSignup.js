@@ -4,7 +4,7 @@ import "./Login.css";
 
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography } from "@mui/material";
 
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+// import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 
 const TutorSignupPage = () => {
@@ -106,7 +106,7 @@ const TutorSignupPage = () => {
     </button>
     <Dialog open={open} onClose={handleClose} aria-labelledby='dialog-title' aria-describedby='dialog-description'>
         <DialogTitle id='dialog-title' sx={{ display: 'flex', alignItems: 'center' }}>
-          <CheckCircleIcon style={{ color: 'green'}} />
+          {/* <CheckCircleIcon style={{ color: 'green'}} /> */}
           <Typography>
             Thank You!
           </Typography>

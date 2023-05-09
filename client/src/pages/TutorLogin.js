@@ -68,9 +68,12 @@ const TutorLoginPage = () => {
       </div>
       <button className="button" type ="submit" name ="signup" value ="register" id = "signup" onClick={PostData}>
         <div className="button-child" />
+      
         <div className="log-in">
        
-       Sign In
+        <Link to="/tutordash/app" style={{ color: "inherit", textDecoration: "none" }}>
+            Sign In
+          </Link>
 
         </div>
       </button>

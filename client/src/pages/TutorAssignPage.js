@@ -48,6 +48,9 @@ export default function TutorAssignPage() {
                     <Grid xs={12} sm={6} item>
                         <TextField label="Topic" placeholder='Enter Topic' variant='outlined' fullWidth />
                     </Grid>
+                    <Grid xs={12} sm={12} item>
+                        <TextField label="Body" placeholder='Enter body of the assignment' variant='outlined' fullWidth />
+                    </Grid>
                     <Grid xs={12} sm={12} item >
                     <TextField type='file' variant='outlined' fullWidth/>
                     </Grid>
@@ -56,7 +59,7 @@ export default function TutorAssignPage() {
                 <Button 
                     sx={{margin:2, alignItems:'left' , backgroundColor:'#a200ff'}} 
                     variant="contained" 
-                    startIcon={<Iconify icon="eva:plus-fill" />}
+                    // startIcon={<Iconify icon="eva:plus-fill" />}
                     onClick={()=>setOpen(true)}  >
                     Upload
                 </Button>
