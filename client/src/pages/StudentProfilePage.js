@@ -120,7 +120,7 @@ export default function TutorProfilePage() {
                             label='Class'
                             placeholder='Enter Class'
                             variant='outlined'
-                            value={teacher.number.min(1).max(12)}
+                            value={teacher.number}
                             fullWidth
                             onChange={handleInputChange}
                         />

@@ -85,7 +85,7 @@ const TutorSignupPage = () => {
       <div className="log-in">
        
       
-      Sign Upd
+      Sign Up
           
      
         
