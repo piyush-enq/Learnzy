@@ -38,12 +38,14 @@ import USERLIST from '../_mock/user';
 import palette from '../theme/palette';
 
 // Displaying the list of selected tutors
-const TABLE_HEAD = [
-    { id: 'name', label: 'Name', alignRight: false },
-    { id: 'city', label: 'City', alignRight: false },
-    { id: 'subject', label: 'Subject', alignRight: false },
-    { id: 'select', label: 'Select', alignRight:false }
-  ];
+function TutorList() {
+    const [tutorList, setTutorList] = useState([
+        { id: 'name', label: 'Name', alignRight: false },
+        { id: 'city', label: 'City', alignRight: false },
+        { id: 'subject', label: 'Subject', alignRight: false },
+        { id: 'select', label: 'Select', alignRight:false }
+      ]);
+}
 
 const MyTutorsPage = () => {
     return (

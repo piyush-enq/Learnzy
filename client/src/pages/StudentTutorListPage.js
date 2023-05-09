@@ -37,14 +37,14 @@ import palette from '../theme/palette';
 
 // ----------------------------------------------------------------------
 
-const TABLE_HEAD = useState([
+const TABLE_HEAD = useState[
   { id: 'name', label: 'Name', alignRight: false },
   { id: 'city', label: 'City', alignRight: false },
   { id: 'subject', label: 'Subject', alignRight: false },
 //   { id: 'isVerified', label: 'Verified', alignRight: false },
   { id: 'select', label: 'Select', alignRight:false },
   // { id: '' },
-]);
+];
 
 // ----------------------------------------------------------------------
 
@@ -108,6 +108,10 @@ export default function StudentTutorListPage() {
     setOrderBy(property);
   };
 
+<<<<<<< HEAD
+=======
+  // select all
+>>>>>>> goutham
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
       const newSelecteds = USERLIST.map((n) => n.name);
