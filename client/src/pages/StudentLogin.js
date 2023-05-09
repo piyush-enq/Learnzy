@@ -65,8 +65,8 @@ const StudentLoginPage = () => {
         alt=""
         src="/microsoftteamsimage-2-1@2x.png"
       />
-      <b className="sign-in">Sign In</b>
-      <div className="as-tutor">As Student</div>
+      <b className="sign-in">Student Sign In</b>
+      {/* <div className="as-tutor">As Student</div> */}
 
 
 
@@ -85,7 +85,7 @@ const StudentLoginPage = () => {
         </div>
       </button>
 
-      <img className="frame-item" alt="" src="" />
+      {/* <img className="frame-item" alt="" src="" />
       <div className="dont-have-a">{`Don’t Have a Account ? `}</div>
       <button className="button1" >
         <div className="button-child" />
@@ -99,7 +99,7 @@ const StudentLoginPage = () => {
             </Link>
           </p>
         </div>
-      </button>
+      </button> */}
       <div className="input2">
         <input className="input1" type="text" name ="password" value={password} onChange={(e)=>setPassword(e.target.value)} id = "password" placeholder = "password"/>
        

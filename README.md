@@ -8,5 +8,3 @@
   2) In the terminal, run `npm install`
   3) Run `npm start` to view project in browser
   
-
-  For admin login route : http://localhost:3000/AdminLogin

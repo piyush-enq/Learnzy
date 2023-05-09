@@ -54,9 +54,9 @@ const TutorLoginPage = () => {
         alt=""
         src="/microsoftteamsimage-2-1@2x.png"
       />
-      <b className="sign-in">Sign In
+      <b className="sign-in">Tutor Sign In
       </b>
-      <div className="as-tutor">As Tutor</div>
+      {/* <div className="as-tutor">As Tutor</div> */}
 
 
 
@@ -68,9 +68,12 @@ const TutorLoginPage = () => {
       </div>
       <button className="button" type ="submit" name ="signup" value ="register" id = "signup" onClick={PostData}>
         <div className="button-child" />
+      
         <div className="log-in">
        
-       Sign IN
+        <Link to="/tutordash/app" style={{ color: "inherit", textDecoration: "none" }}>
+            Sign In
+          </Link>
 
         </div>
       </button>
