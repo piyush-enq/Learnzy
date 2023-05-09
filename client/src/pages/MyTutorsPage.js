@@ -60,8 +60,4 @@ const MyTutorsPage = () => {
 
 };
 
-
-
-
-
 export default MyTutorsPage;

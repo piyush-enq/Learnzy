@@ -37,12 +37,12 @@ import palette from '../theme/palette';
 
 // ----------------------------------------------------------------------
 
-const TABLE_HEAD = useState[
+const TABLE_HEAD = [
   { id: 'name', label: 'Name', alignRight: false },
   { id: 'city', label: 'City', alignRight: false },
   { id: 'subject', label: 'Subject', alignRight: false },
 //   { id: 'isVerified', label: 'Verified', alignRight: false },
-  { id: 'select', label: 'Select', alignRight:false },
+  { id: 'select', label: 'Select', alignRight:false }
   // { id: '' },
 ];
 
@@ -108,10 +108,7 @@ export default function StudentTutorListPage() {
     setOrderBy(property);
   };
 
-<<<<<<< HEAD
-=======
   // select all
->>>>>>> goutham
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
       const newSelecteds = USERLIST.map((n) => n.name);
@@ -175,13 +172,7 @@ export default function StudentTutorListPage() {
   }
 `;
 
-const handleApproveTeacher=(id)=>{
 
-}
-
-const handleDenyTeacher=(id)=>{
-
-}
   return (
     <>
       <Helmet>
@@ -315,35 +306,6 @@ const handleDenyTeacher=(id)=>{
           />
         </Card>
       </Container>
-
-      {/* <Popover
-        open={Boolean(open)}
-        anchorEl={open}
-        onClose={handleCloseMenu}
-        anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
-        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-        PaperProps={{
-          sx: {
-            p: 1,
-            width: 140,
-            '& .MuiMenuItem-root': {
-              px: 1,
-              typography: 'body2',
-              borderRadius: 0.75,
-            },
-          },
-        }}
-      >
-        <MenuItem>
-          <Iconify icon={'eva:edit-fill'} sx={{ mr: 2 }} />
-          Edit
-        </MenuItem>
-
-        <MenuItem sx={{ color: 'error.main' }}>
-          <Iconify icon={'eva:trash-2-outline'} sx={{ mr: 2 }} />
-          Delete
-        </MenuItem>
-      </Popover> */}
     </>
   );
 }
