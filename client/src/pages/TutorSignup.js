@@ -1,9 +1,28 @@
-import { Link ,NavLink,useNavigate} from "react-router-dom";
-import react,{useState} from 'react';
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import "./Login.css";
+
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography } from "@mui/material";
+
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
 
 const TutorSignupPage = () => {
 
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+    console.log("Dialog closed")
+  };
+
+  const handleRedirect = () => {
+    handleClose();
+    console.log("Dialog closed and redirected")
+    window.location.href = "/";
+    
+  }
+  
   const history = useNavigate();
 
 
@@ -47,13 +66,14 @@ const TutorSignupPage = () => {
 
     if(data){
       console.log("registration successful");
-      history("/");
+      // history("/");
     }else{
       console.log("registration unsuccessful");
     }
 
     
-
+    setOpen(true);
+    console.log('dialog opened')
   }  
   
   
@@ -79,22 +99,34 @@ const TutorSignupPage = () => {
 
 
     <button className="button-t"  type ="submit" name ="signup" value ="register" id = "signup" onClick={PostData}>
-    
-      <div className="button-child-s" />
-       
+      <div className="button-child-s" /> 
       <div className="log-in">
-       
-      
       Sign Up
-          
-     
-        
-        
-      </div>
-      
+      </div>  
     </button>
+    <Dialog open={open} onClose={handleClose} aria-labelledby='dialog-title' aria-describedby='dialog-description'>
+        <DialogTitle id='dialog-title' sx={{ display: 'flex', alignItems: 'center' }}>
+          <CheckCircleIcon style={{ color: 'green'}} />
+          <Typography>
+            Thank You!
+          </Typography>
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id='dialog-description'>
+            Your profile is now being reviewed.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary" variant="outlined">
+            Close
+          </Button>
+          <Button onClick={handleRedirect} color="primary" variant="outlined">
+            Go to homepage
+          </Button>
+        </DialogActions>
+      </Dialog>
 
-    
+
     <div className="input2">
       <input className="inpute" type="text"  name ="email" value={tutor.email} onChange={handleInputs} id = "email" placeholder = "email" />
      

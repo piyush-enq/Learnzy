@@ -37,6 +37,7 @@ router.post('/registertutor', async (req, res) => {
      if (tutorRegister) {
        
                 res.json({ message: "tutor registered successfuly" });
+                
      }
 
 
