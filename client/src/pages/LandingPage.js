@@ -17,7 +17,7 @@ const LandingPage = () => {
           <img className="facebook-icon" alt="" src="/facebook.svg" />
           <div className="social-media1">{`social media `}</div>
         </div>
-        <div className="admin-login">
+        {/* <div className="admin-login">
           <button className="admin-login-button">
             <button className="admin-login-button-child" />
 
@@ -32,7 +32,7 @@ const LandingPage = () => {
               </b>
           </button>
           <div className="for-developersadmin">For developers/admin</div>
-        </div>
+        </div> */}
         <div className="contact-our-offices-container">
           <p className="contact-our-offices">
             <b>contact our offices</b>
@@ -91,13 +91,13 @@ const LandingPage = () => {
         <div className="great-learning">Great learning</div>
         <div className="best-tutoring">Best tutoring</div>
         <div className="great-platform">great platform</div>
-        <div className="tony">tony</div>
-        <div className="jenny">Jenny</div>
-        <div className="pepper">pepper</div>
+        <div className="tony">Vineet</div>
+        <div className="jenny">Aparna</div>
+        <div className="pepper">Nikita</div>
       </div>
       <div className="attention-4">
         <img className="attention-4-child" alt="" src="/rectangle-3@2x.png" />
-        <img className="partners-icon" alt="" src="/partners.svg" />
+        {/* <img className="partners-icon" alt="" src="/partners.svg" /> */}
         <img className="google-icon" alt="" src="/google.svg" />
         <img className="meta-icon" alt="" src="/meta.svg" />
         <img className="linkedin-icon" alt="" src="/linkedin.svg" />
