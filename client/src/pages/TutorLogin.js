@@ -54,9 +54,9 @@ const TutorLoginPage = () => {
         alt=""
         src="/microsoftteamsimage-2-1@2x.png"
       />
-      <b className="sign-in">Sign In
+      <b className="sign-in">Tutor Sign In
       </b>
-      <div className="as-tutor">As Tutor</div>
+      {/* <div className="as-tutor">As Tutor</div> */}
 
 
 
@@ -70,7 +70,7 @@ const TutorLoginPage = () => {
         <div className="button-child" />
         <div className="log-in">
        
-       Sign IN
+       Sign In
 
         </div>
       </button>
