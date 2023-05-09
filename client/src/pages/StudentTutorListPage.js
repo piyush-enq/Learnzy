@@ -108,7 +108,7 @@ export default function StudentTutorListPage() {
     setOrderBy(property);
   };
 
-  //select all
+  // select all
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
       const newSelecteds = USERLIST.map((n) => n.name);
