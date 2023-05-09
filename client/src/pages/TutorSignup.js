@@ -65,8 +65,8 @@ const TutorSignupPage = () => {
       alt=""
       src="/microsoftteamsimage-2-1@2x.png"
     />
-    <b className="sign-in">SignUp</b>
-    <div className="as-tutor">As Tutor</div>
+    <b className="sign-in">Tutor SignUp</b>
+    {/* <div className="as-tutor">As Tutor</div> */}
 
 
     <form method="POST">
