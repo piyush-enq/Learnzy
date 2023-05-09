@@ -37,14 +37,14 @@ import palette from '../theme/palette';
 
 // ----------------------------------------------------------------------
 
-const TABLE_HEAD = [
+const TABLE_HEAD = useState([
   { id: 'name', label: 'Name', alignRight: false },
   { id: 'city', label: 'City', alignRight: false },
   { id: 'subject', label: 'Subject', alignRight: false },
 //   { id: 'isVerified', label: 'Verified', alignRight: false },
   { id: 'select', label: 'Select', alignRight:false },
   // { id: '' },
-];
+]);
 
 // ----------------------------------------------------------------------
 
@@ -181,7 +181,7 @@ const handleDenyTeacher=(id)=>{
   return (
     <>
       <Helmet>
-        <title> Learnzy | Tutor Review </title>
+        <title> My Tutors </title>
       </Helmet>
 
       <Container>
