@@ -1,29 +1,30 @@
 import { Link } from "react-router-dom";
-import { Helmet } from 'react-helmet-async';
-import { filter } from 'lodash';
-import { sentenceCase } from 'change-case';
-import { useState } from 'react';
+import {Helmet} from 'react-helmet-async';
+import{ filter} from 'lodash';
+import{sentanceCase} from 'change-case';
+import{useState} from 'react';
 
-// @mui
 import {
-  Card,
-  Table,
-  Stack,
-  Paper,
-  Avatar,
-  Button,
-  Popover,
-  Checkbox,
-  TableRow,
-  MenuItem,
-  TableBody,
-  TableCell,
-  Container,
-  Typography,
-  IconButton,
-  TableContainer,
-  TablePagination,
-} from '@mui/material';
+    Alert,
+    Card,
+    Table,
+    Stack,
+    Paper,
+    Avatar,
+    Button,
+    Popover,
+    Checkbox,
+    TableRow,
+    MenuItem,
+    TableBody,
+    TableCell,
+    Container,
+    Typography,
+    IconButton,
+    TableContainer,
+    TablePagination,
+  } from '@mui/material';
+
 // components
 import { styled } from '@mui/system';
 import Label from '../components/label';
@@ -36,26 +37,22 @@ import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 import USERLIST from '../_mock/user';
 import palette from '../theme/palette';
 
-// ----------------------------------------------------------------------
-
-const TABLE_HEAD = [
-  { id: 'name', label: 'Name', alignRight: false },
-  { id: 'city', label: 'City', alignRight: false },
-  { id: 'subject', label: 'Subject', alignRight: false },
-//   { id: 'isVerified', label: 'Verified', alignRight: false },
-  { id: 'select', label: 'Select', alignRight:false },
-  // { id: '' },
-];
-
-
-
+// Displaying the list of selected tutors
+function TutorList() {
+    const [tutorList, setTutorList] = useState([
+        { id: 'name', label: 'Name', alignRight: false },
+        { id: 'city', label: 'City', alignRight: false },
+        { id: 'subject', label: 'Subject', alignRight: false },
+        { id: 'select', label: 'Select', alignRight:false }
+      ]);
+}
 
 const MyTutorsPage = () => {
     return (
 
         <div >
 
-            <h4>HIII this is student selected tutors </h4>
+            <h4>Your Tutors </h4>
 
         </div>
 
