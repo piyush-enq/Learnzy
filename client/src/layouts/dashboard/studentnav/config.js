@@ -10,22 +10,27 @@ const navConfig = [
   {
     title: 'My Profile',
     path: '/studentdash/myprofile',
-    icon: icon('ic_user'),
+    icon: icon('profile-svgrepo-com'),
   },
   {
     title: 'Tutor List',
     path: '/studentdash/tutorlist',
-    icon: icon('ic_user'),
+    icon: icon('people-svgrepo-com'),
   },
   {
     title: 'My Tutors',
     path: '/studentdash/mytutors',
-    icon: icon('partners'),
+    icon: icon('teacher-svgrepo-com'),
   },
   {
     title: 'Assignments',
     path: '/studentdash/assignments',
-    icon: icon('ic_user'),
+    icon: icon('assignment-svg'),
+  },
+  {
+    title: 'Library',
+    path: '/studentdash/library',
+    icon: icon('library-svgrepo-com'),
   },
 ];
 export default navConfig;

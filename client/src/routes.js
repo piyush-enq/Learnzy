@@ -13,6 +13,7 @@ import StudentDashAppPage from './pages/StudentDashAppPage';
 import StudentProfilePage from './pages/StudentProfilePage';
 import StudentTutorListPage from './pages/StudentTutorListPage';
 import StudentAssignPage from './pages/StudentAssignPage';
+import StudentLibraryPage from './pages/StudentLibraryPage';
 
 import TutorDashAppPage from './pages/TutorDashAppPage';
 import TutorProfilePage from './pages/TutorProfilePage';
@@ -50,6 +51,7 @@ const AppRouter = () => {
         <Route path="mytutors" element={<MyTutorsPage />} />
         <Route path="tutorlist" element={<StudentTutorListPage />} />
         <Route path="assignments" element={<StudentAssignPage/>} />
+        <Route path="library" element={<StudentLibraryPage/>} />
       </Route>
       <Route path='/tutordash/*' element={<TutorDashLayout />}>
         <Route path="app" element={<TutorDashAppPage />} />
