@@ -14,7 +14,7 @@ const navConfig = [
   {
     title: 'My Profile',
     path: '/tutordash/myprofile',
-    icon: icon('ic_user'),
+    icon: icon('profile-svgrepo-com'),
   },
   {
     title: 'My Students',
