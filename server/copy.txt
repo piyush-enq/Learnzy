@@ -1,10 +1,8 @@
-import { Link ,NavLink,useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 import react,{useState} from 'react';
 import "./Login.css";
 
 const StudentSignupPage = () => {
-
-  const history = useNavigate();
 
 
   const [student,setUser] =useState({
@@ -22,7 +20,6 @@ const StudentSignupPage = () => {
     setUser({...student,[name]:value});
   }
 
- 
 
   const PostData = async (e) => {
 
@@ -42,15 +39,6 @@ const StudentSignupPage = () => {
 
 
     })
-
-    const data = await res.json();
-
-    if(data){
-      console.log("registration successful");
-      history("/");
-    }else{
-      console.log("registration unsuccessful");
-    }
 
     
 
@@ -78,20 +66,15 @@ const StudentSignupPage = () => {
       </div>
 
 
-      <button className="button-t"  type ="submit" name ="signup" value ="register" id = "signup" onClick={PostData}>
-      
+      <button className="button-t">
         <div className="button-child-s" />
-         
         <div className="log-in">
+          <input type ="submit" name ="signup"  onClick={PostData}
+          />
          
-        
-        Sign Upd
-            
-       
-          
+            Sign Up
           
         </div>
-        
       </button>
 
       
@@ -117,7 +100,7 @@ const StudentSignupPage = () => {
 
 
       <div className="input5">
-        <input className="inputa" type="Number"  name ="age" value={student.age} onChange={handleInputs} id = "age" placeholder = "age"/>
+        <input className="inputa" type="Integer"  name ="age" value={student.age} onChange={handleInputs} id = "age" placeholder = "age"/>
         
         <div className="password">Age</div>
       </div>
