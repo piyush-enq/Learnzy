@@ -1,8 +1,15 @@
  const jwt  = require('jsonwebtoken');
 
- const tutor = require("../middleware/authenticate")
+ const Tutor = require("../model/tutorSchema");
 
-const Authenticate = ()=>{
+const Authenticate = async(req,res,next)=>{
+    try{
+
+       
+
+    }catch{
+        console.log("error");
+    }
 
 }
 

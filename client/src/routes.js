@@ -34,6 +34,7 @@ const AppRouter = () => {
   return (
     <Routes>
       <Route path="*" element={<LandingPage />} />
+      <Route path="/open" element={<StudentSignup />}/>
       <Route path="/TutorLogin" element={<TutorLogin />} />
       <Route path="/StudentLogin" element={<StudentLogin />} />
       <Route path="/AdminLogin" element={<AdminLogin />} />

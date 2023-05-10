@@ -1,7 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
 // import { CardContent, styled, TextField } from '@mui/material';
 // eslint-disable-next-line import/no-unresolved
-import axios from 'axios';
+// import axios from 'axios';
 import {
     Card,
     CardContent,
@@ -36,13 +36,13 @@ export default function TutorAssignPage() {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-        try {
-            const response = await axios.post('/router/assignments', { subject, topic, body });
-            console.log(response.data);
-            setOpen(true);
-        } catch (error) {
-            console.error(error);
-        }
+        // try {
+        //     const response = await axios.post('/router/assignments', { subject, topic, body });
+        //     console.log(response.data);
+        //     setOpen(true);
+        // } catch (error) {
+        //     console.error(error);
+        // }
     }
 
     return (
