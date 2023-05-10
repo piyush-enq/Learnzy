@@ -34,7 +34,7 @@ const AdminLoginPage = () => {
 
     if(data){
       console.log("login successful");
-       history("/dashboard");
+       history("/dashboard/app");
     }else{
       console.log("registration unsuccessful");
     }

@@ -88,7 +88,7 @@ export default function TutorAssignPage() {
 
                 <Snackbar
                     open={open}
-                    autoHideDuration={6000}
+                    autoHideDuration={3000}
                     onClose={handleClose}
                     anchorOrigin={{
                         vertical: 'bottom',
