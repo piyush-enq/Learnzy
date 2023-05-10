@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(require('./router/auth')); 
 app.use(require('./router/authtutor')); 
 app.use(require('./router/authadmin'));
+// app.use(require('./router/assignments'));
 
 
 // const User = require('./model/userSchema');

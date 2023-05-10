@@ -2,7 +2,7 @@ const { default: mongoose } = require('mongoose');
 const DB= process.env.DATABASE;
 
 mongoose.connect(DB).then(()=>{
-    console.log(`connected`)
+    console.log(`MongoDB connected successfully `)
 }).catch((err)=>
-    console.log(`not connected`)
+    console.log(`Failed connecting MongoDB!!`)
 );

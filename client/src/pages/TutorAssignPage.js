@@ -37,7 +37,7 @@ export default function TutorAssignPage() {
         event.preventDefault();
 
         try {
-            const response = await axios.post('/api/assignments', { subject, topic, body });
+            const response = await axios.post('/router/assignments', { subject, topic, body });
             console.log(response.data);
             setOpen(true);
         } catch (error) {
@@ -88,7 +88,7 @@ export default function TutorAssignPage() {
 
                 <Snackbar
                     open={open}
-                    autoHideDuration={3000}
+                    autoHideDuration={2000}
                     onClose={handleClose}
                     anchorOrigin={{
                         vertical: 'bottom',

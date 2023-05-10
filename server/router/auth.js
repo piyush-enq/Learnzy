@@ -7,11 +7,11 @@ const jwt = require('jsonwebtoken');
 
 
 router.get('/', (req, res) => {
-res.send( `Hello world from the server rotuer js`);
+res.send( `Hello world from the server router js`);
 });
 
 router.get('/register', (req, res) => {
-    res.send( `Hello world from the server rotuer js`);
+    res.send( `Hello world from the server router js`);
     });
 
 router.post('/register', async (req, res) => {
@@ -36,7 +36,7 @@ router.post('/register', async (req, res) => {
 
      if (userRegister) {
        
-                res.json({ message: "user registered successfuly" });
+                res.json({ message: "User registered successfuly" });
      }
 
 
