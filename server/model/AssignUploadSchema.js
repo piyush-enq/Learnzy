@@ -1,9 +1,4 @@
-// //Schema for creating db  
-// subject, topic, body
-
-// const { Schema, model } = require("mongoose");
-
-const { default: mongoose } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -22,10 +17,10 @@ const AssignUploadSchema = new Schema(
       type: String,
       required: true,
     },
-    fileUrl: {
-      type: String,
-      required: false,
-    },
+    // fileUrl: {
+    //   type: String,
+    //   required: false,
+    // },
     tokens:[
         {
             token:{
@@ -44,7 +39,7 @@ const AssignUploadSchema = new Schema(
 );
 
 
-adminSchema.methods.generateAuthToken = async function(){
+AssignUploadSchema.methods.generateAuthToken = async function(){
     try{
         let token = jwt.sign({_id:this._id},process.env.SECRET_KEY);
 
@@ -58,13 +53,5 @@ adminSchema.methods.generateAuthToken = async function(){
     }
 }
 
-// const Blog = model("blog", blogSchema);
-
-// module.exports = Blog;
-
-
-
-
-
-const Assignments = mongoose.model('assignments', AssignUploadSchema);
+const Assignments = model('assignments', AssignUploadSchema);
 module.exports = Assignments;

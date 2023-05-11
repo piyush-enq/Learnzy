@@ -27,7 +27,7 @@ import StudentLogin from "./pages/StudentLogin";
 import AdminLogin from "./pages/AdminLogin";
 import TutorSignup from "./pages/TutorSignup";
 import StudentSignup from "./pages/StudentSignup";
-
+import AStudentsPage from './pages/AStudentPage';
 // ----------------------------------------------------------------------
 
 const AppRouter = () => {
@@ -43,7 +43,7 @@ const AppRouter = () => {
       <Route path="/dashboard/*" element={<DashboardLayout />}>
         <Route path="app" element={<DashboardAppPage />} />
         <Route path="user" element={<UserPage />} />
-        <Route path="students" element={<StudentsPage />} />
+        <Route path="students" element={<AStudentsPage />} />
         <Route path="tutors" element={<TutorsPage />} />
       </Route>
       <Route path='/studentdash/*' element={<StudentDashLayout />}>
