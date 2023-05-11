@@ -4,15 +4,16 @@ const express = require('express');
 const router = express.Router();
 const Tutor = require("../model/tutorSchema");
 const jwt = require('jsonwebtoken');
+const authenticate = require("../middleware/authenticatetutor");
 
 
-router.get('/open', (req, res) => {
+router.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Credentials', 'true'); // Allow credentials
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+  });
 
-        res.cookie("test",'ssddd')
-    
-        res.send( `Hello world from the server rotuer js`);
-    
-        });
 
 router.post('/registertutor', async (req, res) => {
     const { name, email, password, phone, age} = req.body;
@@ -71,9 +72,11 @@ if(tutorLogin){
      const token = await tutorLogin.generateAuthToken();
     
      res.cookie("jwtoken",token,{
-         expires:new Date(Date.now()+256426542564),
+        
          httpOnly:true
-     })
+     }).send();
+
+     
 
 
     
@@ -94,9 +97,6 @@ if(tutorLogin){
 })
 
 
-// router.get('/tutordetails',authenticate,(req,res)=>{
-//     res.send('hehe bwoi');
-// })
 
 
 
