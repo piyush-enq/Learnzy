@@ -6,13 +6,13 @@ const Tutor = require("../model/tutorSchema");
 const jwt = require('jsonwebtoken');
 
 
-router.get('/', (req, res) => {
-res.send( `Hello world from the server rotuer js`);
-});
+router.get('/open', (req, res) => {
 
-router.get('/registertutor', (req, res) => {
-    res.send( `Hello world from the server rotuer js`);
-    });
+        res.cookie("test",'ssddd')
+    
+        res.send( `Hello world from the server rotuer js`);
+    
+        });
 
 router.post('/registertutor', async (req, res) => {
     const { name, email, password, phone, age} = req.body;
@@ -67,8 +67,17 @@ if(tutorLogin){
 
     if(isMatch){
 
-     res.json( {message: "tutor Signin Successfully" });
+    //  res.json( {message: "tutor Signin Successfully" });
      const token = await tutorLogin.generateAuthToken();
+    
+     res.cookie("jwtoken",token,{
+         expires:new Date(Date.now()+256426542564),
+         httpOnly:true
+     })
+
+
+    
+
 
     }else{ 
         res.json( {message: "invalid credentials" });
