@@ -26,8 +26,9 @@ const TutorLoginPage = () => {
       },
       body:JSON.stringify({
         email,password
-      })
+      }),
 
+      credentials:'include',
 
     })
 

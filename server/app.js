@@ -15,6 +15,13 @@ app.use(require('./router/authtutor'));
 app.use(require('./router/authadmin'));
 // app.use(require('./router/assignments'));
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Credentials', 'true'); // Allow credentials
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+  });
+
 
 // const User = require('./model/userSchema');
 
@@ -22,11 +29,7 @@ const PORT = process.env.PORT;
 
 
 
-app.get('/also', (req, res) => {
-   
-    res.cookie(`Cookie token name`,`encrypted cookie string Value`);
-    res.send('Cookie have been saved successfully');
-});
+
 
 app.get('/register', (req, res) => {
     res.send( "Hello world from the server");
