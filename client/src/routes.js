@@ -8,6 +8,7 @@ import UserPage from './pages/UserPage';
 import Page404 from './pages/Page404';
 import StudentsPage from './pages/StudentsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
+import DummyReview from './pages/DummyReview';
 
 import StudentDashAppPage from './pages/StudentDashAppPage';
 import StudentProfilePage from './pages/StudentProfilePage';
@@ -42,7 +43,7 @@ const AppRouter = () => {
       <Route path="/TutorSignup" element={<TutorSignup />} />
       <Route path="/dashboard/*" element={<DashboardLayout />}>
         <Route path="app" element={<DashboardAppPage />} />
-        <Route path="user" element={<UserPage />} />
+        <Route path="user" element={<DummyReview />} />
         <Route path="students" element={<AStudentsPage />} />
         <Route path="tutors" element={<TutorsPage />} />
       </Route>

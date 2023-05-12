@@ -1,8 +1,21 @@
 import { faker } from '@faker-js/faker';
 import { sample } from 'lodash';
-
+import React, { useState, useEffect } from 'react'
 // ----------------------------------------------------------------------
 
+
+// const users = ()=>{
+  // const [tableData, setTableData] = useState([])
+  // useEffect(() => {
+  // fetch("http://localhost:5000/trial")
+  //   .then((data) => data.json())
+  // })
+  // fetch('/trial')
+  // .then(response => response.json())
+  // .then(data => {
+  //   this.setState({ items: data });
+  // });
+  // };
 const users = [...Array(24)].map((_, index) => ({
   id: faker.datatype.uuid(),
   avatarUrl: `/assets/images/avatars/avatar_${index + 1}.jpg`,
@@ -60,5 +73,4 @@ const users = [...Array(24)].map((_, index) => ({
     'Python',
   ]),
 }));
-
 export default users;
