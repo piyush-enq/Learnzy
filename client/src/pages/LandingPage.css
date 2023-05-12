@@ -9,6 +9,7 @@
   height: 893px;
   mix-blend-mode: normal;
 }
+
 .shade-attention3-icon,
 .shade-attention4-icon,
 .shade-navbar-icon {
@@ -16,6 +17,15 @@
   background-color: var(--color-cornflowerblue);
   filter: blur(360px);
 }
+.center-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
 .shade-attention4-icon {
   height: 12.86%;
   top: 52.49%;

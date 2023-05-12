@@ -28,6 +28,8 @@ import AdminLogin from "./pages/AdminLogin";
 import TutorSignup from "./pages/TutorSignup";
 import StudentSignup from "./pages/StudentSignup";
 import AStudentsPage from './pages/AStudentPage';
+import Whyus from './pages/Whyus';
+import Aboutus from './pages/Aboutus';
 // ----------------------------------------------------------------------
 
 const AppRouter = () => {
@@ -35,6 +37,8 @@ const AppRouter = () => {
     <Routes>
       <Route path="*" element={<LandingPage />} />
       <Route path="/open" element={<StudentSignup />}/>
+      <Route path="/Aboutus" element ={<Aboutus />} />
+      <Route path="/Whyus" element={<Whyus />} />
       <Route path="/TutorLogin" element={<TutorLogin />} />
       <Route path="/StudentLogin" element={<StudentLogin />} />
       <Route path="/AdminLogin" element={<AdminLogin />} />
