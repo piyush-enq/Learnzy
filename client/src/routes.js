@@ -8,6 +8,7 @@ import UserPage from './pages/UserPage';
 import Page404 from './pages/Page404';
 import StudentsPage from './pages/StudentsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
+import DummyReview from './pages/DummyReview';
 
 import StudentDashAppPage from './pages/StudentDashAppPage';
 import StudentProfilePage from './pages/StudentProfilePage';
@@ -28,6 +29,8 @@ import AdminLogin from "./pages/AdminLogin";
 import TutorSignup from "./pages/TutorSignup";
 import StudentSignup from "./pages/StudentSignup";
 import AStudentsPage from './pages/AStudentPage';
+import Whyus from './pages/Whyus';
+import Aboutus from './pages/Aboutus';
 // ----------------------------------------------------------------------
 
 const AppRouter = () => {
@@ -35,6 +38,8 @@ const AppRouter = () => {
     <Routes>
       <Route path="*" element={<LandingPage />} />
       <Route path="/open" element={<StudentSignup />}/>
+      <Route path="/Aboutus" element ={<Aboutus />} />
+      <Route path="/Whyus" element={<Whyus />} />
       <Route path="/TutorLogin" element={<TutorLogin />} />
       <Route path="/StudentLogin" element={<StudentLogin />} />
       <Route path="/AdminLogin" element={<AdminLogin />} />
@@ -42,7 +47,7 @@ const AppRouter = () => {
       <Route path="/TutorSignup" element={<TutorSignup />} />
       <Route path="/dashboard/*" element={<DashboardLayout />}>
         <Route path="app" element={<DashboardAppPage />} />
-        <Route path="user" element={<UserPage />} />
+        <Route path="user" element={<DummyReview />} />
         <Route path="students" element={<AStudentsPage />} />
         <Route path="tutors" element={<TutorsPage />} />
       </Route>

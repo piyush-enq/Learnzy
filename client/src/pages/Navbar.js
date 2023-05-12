@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 
 import "./Navbar.css";
 
+const scrollToContact = () => {
+  const contactSection = document.getElementById("contact-us");
+  contactSection.scrollIntoView({ behavior: "smooth" });
+}
 const Navbar = () => {
   return (
     <div className="navbar">
@@ -15,13 +19,34 @@ const Navbar = () => {
       </div>
       <div className="navigations">
         <div className="about">
-          <a className="about1">About</a>
+        <a className="about">
+          <Link
+            to = "/Aboutus"
+            style={{ color: "inherit", textDecoration: "none" }}>
+              About
+            </Link> 
+        </a>
         </div>
         <div className="why-us">
-          <b className="">Why Us</b>
+        <a>
+          <Link
+            to = "/Whyus"
+            style={{ color: "inherit", textDecoration: "none" }}>
+              Why us
+            </Link> 
+        </a>
         </div>
+        
         <div className="contact">
-          <div className="contact1">{`Contact `}</div>
+        <a className="contact">
+          <Link
+            to="/#contact-us"
+            // to = "/Contact"
+            onClick={scrollToContact} 
+            style={{ color: "inherit", textDecoration: "none" }}>
+              Contact
+            </Link> 
+        </a>
         </div>
       </div>
       <div className="loinsignup">
@@ -29,10 +54,8 @@ const Navbar = () => {
           <button className="student-loginsignup-child" />
           <a className="start-learning">
             
-          <Link
-              to="/StudentLogin"
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
+          <Link to="/StudentLogin"
+              style={{ color: "inherit", textDecoration: "none" }}>
               Start Learning
             </Link>
             
@@ -56,3 +79,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+ 

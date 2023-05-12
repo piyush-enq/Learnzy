@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 // @mui
 import {
@@ -36,7 +36,11 @@ import USERLIST from '../_mock/user';
 import palette from '../theme/palette';
 
 // ----------------------------------------------------------------------
-
+// const columns = [
+//   { field: 'email', headerName: 'Email' },
+//   { field: 'first_name', headerName: 'first_name', width: 300 },
+//   { field: 'last_name', headerName: 'last_name', width: 600 }
+// ];
 const TABLE_HEAD = [
   { id: 'name', label: 'Name', alignRight: false },
   { id: 'city', label: 'City', alignRight: false },
@@ -78,6 +82,22 @@ function applySortFilter(array, comparator, query) {
 }
 
 export default function UserPage() {
+// const [data, setData] = useState([]);
+// const [openAssignment, setOpenAssignment] = useState(null);
+// useEffect(() => {
+// axios.get('http://localhost:5000/assign')
+// .then((response) => {
+//       // Handle the response data here
+//       setData(response.data);
+//       console.log(response.data);
+//     })
+//     .catch((error) => {
+//       // Handle any errors that occurred during the request
+//       console.error(error);
+//     });
+// }, []);
+  
+   
   const [open, setOpen] = useState(null);
 
   const [page, setPage] = useState(0);
@@ -193,7 +213,7 @@ const handleDenyTeacher=(id)=>{
             New User
           </Button> */}
         </Stack>
-
+       
         <Card>
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
