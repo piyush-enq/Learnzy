@@ -73,8 +73,7 @@ const TutorSignupPage = () => {
     }
 
     
-    setOpen(true);
-    console.log('dialog opened')
+    
   }  
   
   
@@ -107,7 +106,7 @@ const TutorSignupPage = () => {
     </button>
     <Dialog open={open} onClose={handleClose} aria-labelledby='dialog-title' aria-describedby='dialog-description'>
         <DialogTitle id='dialog-title' sx={{ display: 'flex', alignItems: 'center' }}>
-          <CheckCircleIcon style={{ color: 'green' , mr:2}} />
+          <CheckCircleIcon style={{ color: 'green', mr:1}} />
           <Typography>
             Thank You!
           </Typography>

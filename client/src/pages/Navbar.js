@@ -1,8 +1,18 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+
+
+
 
 import "./Navbar.css";
 
+import { Link , useNavigate } from "react-router-dom";
+
+
+
+
+
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div className="navbar">
       <div className="logo">
@@ -25,7 +35,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="loinsignup">
-        <button className="student-loginsignup">
+        <button onClick={()=> navigate("/StudentLogin")} className="student-loginsignup">
           <button className="student-loginsignup-child" />
           <a className="start-learning">
             
@@ -39,7 +49,7 @@ const Navbar = () => {
             
             </a>
         </button>
-        <button className="tutor-loginsignup">
+        <button onClick={()=> navigate("/TutorLogin")} className="tutor-loginsignup">
           <button className="tutor-loginsignup-child" />
           <a className="start-learning">
             <Link
