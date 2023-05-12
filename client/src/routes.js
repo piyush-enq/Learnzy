@@ -20,7 +20,7 @@ import TutorDashAppPage from './pages/TutorDashAppPage';
 import TutorProfilePage from './pages/TutorProfilePage';
 import TutorsPage from './pages/TutorsPage';
 import TutorLogin from "./pages/TutorLogin";
-// import TutorAssignPage from './pages/TutorAssignPage';
+import TutorAssignPage from './pages/TutorAssignPage';
 import MyTutorsPage from './pages/MyTutorsPage';
 
 import LandingPage from "./pages/LandingPage";
