@@ -47,41 +47,21 @@ router.post('/assign', async (req, res) => {
               console. log(err);
     }
 
-})
+});
 
-// router.get("/:id", async (req, res) => {
-//   const assign = await Assign.findById(req.params.id).populate("createdBy");
-// //   const comments = await Comment.find({ blogId: req.params.id }).populate(
-// //     "createdBy"
-// //   );
-
-//   return res.render("assign", {
-//     // user: req.user,
-//     assign,
-//     // comments,
-//   });
-// });
-
-// // router.post("/comment/:blogId", async (req, res) => {
-// //   await Comment.create({
-// //     content: req.body.content,
-// //     blogId: req.params.blogId,
-// //     createdBy: req.user._id,
-// //   });
-// //   return res.redirect(`/blog/${req.params.blogId}`);
-// // });
-// // subject, topic, body
-// router.post("/", upload.single("fileUrl"), async (req, res) => {
-//   const { subject,topic,body } = req.body;
-//   const assign = await Assign.create({
-//     subject,
-//     topic,
-//     body,
-//     // title,
-//     // createdBy: req.user._id,
-//     fileUrl: `/uploads/${req.file.filename}`,
-//   });
-//   return res.redirect(`/assign/${assign._id}`);
-// });
+router.get("/assign", async (req, res) => {
+    try {
+      // Get the list of tutors waiting for approval from temporary storage
+  
+    //   } catch (err) {
+    //             console. log(err);
+    //   }
+      const assign = await Assign.find({}).exec();
+      res.status(200).json(assign);
+    } catch (err) {
+      console.error(err);
+    }
+  
+  });
 
 module.exports = router;
