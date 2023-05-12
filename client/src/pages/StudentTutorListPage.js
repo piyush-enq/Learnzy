@@ -43,11 +43,7 @@ const TABLE_HEAD = [
   { id: 'city', label: 'City', alignRight: false },
   { id: 'subject', label: 'Subject', alignRight: false },
 //   { id: 'isVerified', label: 'Verified', alignRight: false },
-<<<<<<< HEAD
-  { id: 'select', label: 'Select', alignRight:false }
-=======
-  { id: 'select', label: 'Select', align:'center' }
->>>>>>> goutham
+  { id: 'select', label: 'Select', alignRight: false }
   // { id: '' },
 ];
 
@@ -189,18 +185,11 @@ export default function StudentTutorListPage() {
 `;
 
 
-<<<<<<< HEAD
-  return (
-    <>
-      <Helmet>
-        <title> My Tutors </title>
-=======
 return (
 
     <>
       <Helmet>
         <title> Tutor List </title>
->>>>>>> goutham
       </Helmet>
 
       <Container>
@@ -235,15 +224,9 @@ return (
 
                     return (
                       <TableRow hover key={id} tabIndex={-1} selected={selectedUser}>
-<<<<<<< HEAD
-                        {/* <TableCell padding="checkbox">
-                          <Checkbox checked={selectedUser} onChange={(event) => handleClick(event, name)} />
-                        </TableCell> */}
-=======
                         <TableCell padding="checkbox">
                           <Checkbox checked={selectedUser} onChange={(event) => handleCheckBox(event, name)} />
                         </TableCell>
->>>>>>> goutham
 
                         <TableCell component="th" scope="row" padding="none">
                           <Stack direction="row" alignItems="center" spacing={2}>
@@ -262,15 +245,8 @@ return (
 
                         <TableCell align="right">
                           <Stack direction="row" alignItems="center" justifyContent="space-between">
-<<<<<<< HEAD
-                            <CustomButton onClick={()=>{
-                              <Alert severity='info'>{name} has been selected!</Alert>
-                            }}>
-                              Select
-=======
                             <CustomButton onClick = {() => handleAdd(row)}>
                               Add to My Tutors
->>>>>>> goutham
                             </CustomButton>
                             {/* <Button variant="outlined" color="error" onClick={()=>alert('Denied!')}>
                               Deny
