@@ -41,7 +41,7 @@ router.post('/registertutor', async (req, res) => {
                 
      }
 
-
+ 
     } catch (err) {
               console. log(err);
     }
@@ -99,7 +99,9 @@ if(tutorLogin){
 
 
 
-
+// router.get('/editprofile',authenticate,(req,res)=>{
+//     console.log(`hehe bwoi`)
+// })
 
 
 

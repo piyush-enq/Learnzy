@@ -1,4 +1,6 @@
 import { useState, props } from 'react';
+import { Link ,NavLink,useNavigate} from "react-router-dom";
+
 
 import {
     styled,
@@ -47,17 +49,34 @@ export default function TutorProfilePage() {
     }));
 
 
-    const [teacher, setTeacher] = useState({
-        name: 'Aakash Sharma',
-        location: 'Bengaluru',
-        gender: 'Male',
-        age: '20',
-        subject: 'MATHEMATICS',
-        bio: 'My self Aakash Sharma, I am passionate and experienced math teacher with 8 years of experience. My love for mathematics started at a young age. After completing my studies, I began my career as a math teacher, and since then, I have been inspiring and motivating students to love and appreciate math.',
-        rate: '300',
-        experience: '8 years',
-        profilePic: null,
+
+
+
+
+
+
+    const [tutor, settutor] = useState({
+        name: '',
+
+        // location: 'Bengaluru',
+        // gender: 'Male',
+        age: ''
+        // subject: 'MATHEMATICS',
+        // bio: 'My self Aakash Sharma, I am passionate and experienced math tutor with 8 years of experience. My love for mathematics started at a young age. After completing my studies, I began my career as a math tutor, and since then, I have been inspiring and motivating students to love and appreciate math.',
+        // rate: '300',
+        // experience: '8 years',
+        // profilePic: null,
     });
+
+
+
+
+
+
+
+
+
+    
 
     const [isEditMode, setIsEditMode] = useState(false);
 
@@ -66,21 +85,54 @@ export default function TutorProfilePage() {
         const value = target.type === 'file' ? target.files[0] : target.value;
         const name = target.name;
 
-        setTeacher((prevTeacher) => ({
-            ...prevTeacher,
+        settutor((prevtutor) => ({
+            ...prevtutor,
             [name]: value,
         }));
     };
 
-    const handleSubmit = (event) => {
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(teacher);
+        const {name,age}=tutor;
+
+        const res = await fetch("/editprofile",{
+    
+    
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify({
+            name,age
+          })
+    
+    
+        })
+        console.log(tutor);
         setIsEditMode(false);
     };
 
-    const handleEditClick = () => {
+
+
+
+
+
+
+
+    const handleEditClick =async (e) => {
+        
+    e.preventDefault();
+   
         setIsEditMode(true);
     };
+
+
+
+
+
+
+
 
     const renderForm = () => {
         return (
@@ -97,7 +149,7 @@ export default function TutorProfilePage() {
                             type='file'
                             variant='outlined'
                             fullWidth
-                            value={teacher.profilePic}
+                            value={tutor.profilePic}
                         />
                     </Grid>
                     <Grid xs={12} sm={6} item>
@@ -107,7 +159,7 @@ export default function TutorProfilePage() {
                             name='name'
                             placeholder='Enter Name'
                             variant='outlined'
-                            value={teacher.name}
+                            value={tutor.name}
                             fullWidth
                             
                             onChange={handleInputChange}
@@ -120,7 +172,7 @@ export default function TutorProfilePage() {
                             label='Location'
                             placeholder='Enter Location'
                             variant='outlined'
-                            value={teacher.location}
+                            value={tutor.location}
                             fullWidth
                             onChange={handleInputChange}
                         />
@@ -132,7 +184,7 @@ export default function TutorProfilePage() {
                             label='Gender'
                             placeholder='Enter Gender'
                             variant='outlined'
-                            value={teacher.gender}
+                            value={tutor.gender}
                             fullWidth
                             onChange={handleInputChange}
                         />
@@ -144,7 +196,7 @@ export default function TutorProfilePage() {
                             label='Age'
                             placeholder='Enter Age'
                             variant='outlined'
-                            value={teacher.age}
+                            value={tutor.age}
                             fullWidth
                             onChange={handleInputChange}
                         />
@@ -156,7 +208,7 @@ export default function TutorProfilePage() {
                             label='Subject'
                             placeholder='Enter Subject'
                             variant='outlined'
-                            value={teacher.subject}
+                            value={tutor.subject}
                             fullWidth
                             onChange={handleInputChange}
                         />
@@ -168,7 +220,7 @@ export default function TutorProfilePage() {
                             label='Bio'
                             placeholder='Enter Bio'
                             variant='outlined'
-                            value={teacher.bio}
+                            value={tutor.bio}
                             fullWidth
                             onChange={handleInputChange}
                         />
@@ -180,7 +232,7 @@ export default function TutorProfilePage() {
                             label='Experience'
                             placeholder='Enter Experience'
                             variant='outlined'
-                            value={teacher.experience}
+                            value={tutor.experience}
                             fullWidth
                             onChange={handleInputChange}
                         />
@@ -192,7 +244,7 @@ export default function TutorProfilePage() {
                             label='Rate'
                             placeholder='Enter Rate'
                             variant='outlined'
-                            value={teacher.rate}
+                            value={tutor.rate}
                             fullWidth
                             onChange={handleInputChange}
                         />
@@ -213,46 +265,48 @@ export default function TutorProfilePage() {
 
 
 
-    const TeacherDetails = () => {
+    const tutorDetails = () => {
         return (
             <Container>
                 <Typography variant="h4" sx={{ mb: 5 }}>
                     My Profile
                 </Typography>
+
+                <form method = "GET">
                 <Grid container spacing={2} alignItems='center'>
                     <Grid item xs={4}>
                         <ProfilePic  sx={{ backgroundColor: 'gray' }} />
                     </Grid>
                     <Grid item xs={8}>
                         <Typography variant='h3' sx={{ mb: 1, color: '#9100e6' }} >
-                            {teacher.name}
+                            {tutor.name}
                         </Typography>
                         <Typography variant='h6' sx={{ fontWeight: 500 }}>
-                            {teacher.location}, India
+                            {tutor.location}, India
                         </Typography>
                         <Typography variant='h5'>
-                            {teacher.experience} of {teacher.subject} EDUCATOR - Specialized in IIT-JEE || SAT || AP || GRE || CBSE || ISC || IGCSE || IB
+                            {tutor.experience} of {tutor.subject} EDUCATOR - Specialized in IIT-JEE || SAT || AP || GRE || CBSE || ISC || IGCSE || IB
                         </Typography>
                         <Typography variant='h5' sx={{ fontWeight: 700, marginTop: 2 }} >
                             Bio
                         </Typography>
                         <Typography variant='body2' >
-                            {teacher.bio}
+                            {tutor.bio}
                         </Typography>
                     </Grid>
                 </Grid>
                 <Grid container spacing={4} sx={{ marginTop: 2 }} justifyContent="ceter" alignItems="center">
                     <Grid item xs={3} >
                         <Typography variant='button' sx={{ fontWeight: 200 }}>
-                            {teacher.gender}, {teacher.age} Years
+                            {tutor.gender}, {tutor.age} Years
                         </Typography>
                         <Typography variant='h6'>
-                            {teacher.subject}
+                            {tutor.subject}
                         </Typography>
                     </Grid>
                     <Grid item xs={3} >
                         <Typography variant='h3'>
-                            ${teacher.rate}
+                            ${tutor.rate}
                         </Typography>
                         <Typography variant='subtitle1' color='#9100e6'>
                             Hourly Rate
@@ -282,7 +336,7 @@ export default function TutorProfilePage() {
                     Edit Profile
                 </Button>
 
-
+                </form>
 
             </Container>
         );
@@ -296,7 +350,7 @@ export default function TutorProfilePage() {
             {isEditMode ? (
                 renderForm()
             ) : (
-                <TeacherDetails />
+                <tutorDetails />
             )}
         </Container>
     );

@@ -49,7 +49,7 @@ AssignUploadSchema.methods.generateAuthToken = async function(){
         return token;
     } catch{
 
-       console.log("error");
+       console.log("errorg");
     }
 }
 

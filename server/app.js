@@ -14,6 +14,10 @@ app.use(require('./router/auth'));
 app.use(require('./router/authtutor')); 
 app.use(require('./router/authadmin'));
 app.use(require('./router/assignments'));
+app.use(require('./tutors/editprofile'));
+app.use(require('./middleware/authenticatetutor'));
+
+
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
@@ -38,17 +42,17 @@ app.get('/register', (req, res) => {
 const Tutor = require('./model/tutorSchema');
     // get route to get a list of all data
 //,{ name: 1,_id:0}  for only name add this
-app.get('/trial',async (req,res)=>{
+app.get('/trial', async (req, res) => {
     try {
         // Get the list of tutors waiting for approval from temporary storage
         const tutors = await Tutor.find({}).exec();
-    
-    const tutorArray = [];
 
-for (const tutor of tutorArray) {
-  tutorArray.push(tutor.name);
-}
-console.log(tutors)
+        // const tutorArray = [];
+
+        // for (const tutor of tutorArray) {
+        //     tutorArray.push(tutor.name);
+        // }
+        console.log(tutors)
         // const tutors = await Tutor.find({}).exec()
         res.status(200).json(tutors)
     }

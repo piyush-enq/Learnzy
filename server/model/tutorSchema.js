@@ -57,7 +57,7 @@ tutorSchema.pre('save',async function (next){
          return token;
      } catch{
 
-        console.log("error");
+        console.log("errorg");
      }
  }
 
