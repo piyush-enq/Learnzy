@@ -80,7 +80,7 @@ const DummyReview = () => {
     return (
         <div style={{ height: 700, width: '100%' }}>
           <DataGrid
-            getRowId={(row) =>  row.name }
+            getRowId={(row) =>  row.name +row.email}
             rows={tableData}
             columns={columns}
             pageSize={12}
