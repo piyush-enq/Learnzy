@@ -79,7 +79,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  left: 74.86%;
+  left: 58.86%;
 }
 .navigations {
   height: 27.91%;
@@ -175,4 +175,5 @@
   font-size: var(--font-size-11xl);
   color: var(--color-black);
   font-family: var(--font-inter);
+
 }

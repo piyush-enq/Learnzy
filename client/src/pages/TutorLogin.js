@@ -81,7 +81,7 @@ const TutorLoginPage = () => {
  
       <img className="frame-item" alt="" src="" />
       <div className="dont-have-a">{`Don’t Have a Account ? `}</div>
-      <button className="button1">
+      <button onClick={()=> history("/TutorSignUp")}className="button1">
         <div className="button-child" />
         <div className="sign-up">
           

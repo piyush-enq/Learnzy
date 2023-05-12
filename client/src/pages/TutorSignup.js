@@ -4,7 +4,7 @@ import "./Login.css";
 
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography } from "@mui/material";
 
-// import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 
 const TutorSignupPage = () => {
@@ -44,12 +44,13 @@ const TutorSignupPage = () => {
  
 
   const PostData = async (e) => {
-
+    setOpen(true);
+    console.log('dialog opened')
     e.preventDefault();
     const {name,email,password,phone,age}=tutor;
 
     const res = await fetch("/registertutor",{
-
+      
 
       method:"POST",
       headers:{
@@ -72,8 +73,7 @@ const TutorSignupPage = () => {
     }
 
     
-    setOpen(true);
-    console.log('dialog opened')
+    
   }  
   
   
@@ -106,7 +106,7 @@ const TutorSignupPage = () => {
     </button>
     <Dialog open={open} onClose={handleClose} aria-labelledby='dialog-title' aria-describedby='dialog-description'>
         <DialogTitle id='dialog-title' sx={{ display: 'flex', alignItems: 'center' }}>
-          {/* <CheckCircleIcon style={{ color: 'green'}} /> */}
+          <CheckCircleIcon style={{ color: 'green', mr:1}} />
           <Typography>
             Thank You!
           </Typography>

@@ -1,119 +1,52 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
-import MuiAccordion from '@mui/material/Accordion';
-import MuiAccordionSummary from '@mui/material/AccordionSummary';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import { useState, useEffect } from 'react';
+
 import Typography from '@mui/material/Typography';
 import { Helmet } from 'react-helmet-async';
-import { Button, Card , CardContent, Container} from '@mui/material';
 
-import assignments from '../_mock/assignments';
-import StudentAssignCardList from '../sections/@dashboard/students/StudentAssignCardList';
+import { Grid, Button, Card, CardContent, CardActions, Container, Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText } from '@mui/material';
 
-// const Accordion = styled((props) => (
-//   <MuiAccordion disableGutters elevation={0} square {...props} />
-// ))(({ theme }) => ({
-//   border: `1px solid ${theme.palette.divider}`,
-//   '&:not(:last-child)': {
-//     borderBottom: 0,
-//   },
-//   '&:before': {
-//     display: 'none',
-//   },
-// }));
+import axios from 'axios';
 
-// const AccordionSummary = styled((props) => (
-//   <MuiAccordionSummary
-//     expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
-//     {...props}
-//   />
-// ))(({ theme }) => ({
-//   backgroundColor:
-//     theme.palette.mode === 'dark'
-//       ? 'rgba(255, 255, 255, .05)'
-//       : 'rgba(0, 0, 0, .03)',
-//   flexDirection: 'row-reverse',
-//   '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-//     transform: 'rotate(90deg)',
-//   },
-//   '& .MuiAccordionSummary-content': {
-//     marginLeft: theme.spacing(1),
-//   },
-// }));
 
-// const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-//   padding: theme.spacing(2),
-//   borderTop: '1px solid rgba(0, 0, 0, .125)',
-// }));
+export default function StudentAssignPage() {
+  const [data, setData] = useState([]);
+ 
+  const [openAssignment, setOpenAssignment] = useState(null);
 
-// export default function CustomizedAccordions() {
-//   const [expanded, setExpanded] = React.useState('panel1');
+  useEffect(() => {
 
-//   const handleChange = (panel) => (event, newExpanded) => {
-//     setExpanded(newExpanded ? panel : false);
-//   };
+    axios
 
-//   return (
-//     <>
-//     <Helmet>
-//         <title>Assignment | Learnzy</title>
-//     </Helmet>
-//     <Card>
-//         <CardContent>
-//             <Typography variant='h3' sx={{mb:2}}>
-//                 Your Assignments are here!
-//             </Typography>
-//         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-//         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" >
-//           <Typography>Subject1  {'->'} Title1</Typography>
-          
-//         </AccordionSummary>
-//         <AccordionDetails>
-//           <Typography>
-//             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-//             malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-//             sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-//             sit amet blandit leo lobortis eget.
-//           </Typography>
-//         </AccordionDetails>
-//       </Accordion>
-//       <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-//         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-//         <Typography>Subject1  {'->'} Title1</Typography>
-//         </AccordionSummary>
-//         <AccordionDetails>
-//           <Typography>
-//             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-//             malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-//             sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-//             sit amet blandit leo lobortis eget.
-//           </Typography>
-//           <Button variant='contained' >Completed</Button>
-//         </AccordionDetails>
-//       </Accordion>
-//       <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-//         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-//         <Typography>Subject1  {'->'} Title1</Typography>
-//         </AccordionSummary>
-//         <AccordionDetails>
-//           <Typography>
-//             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-//             malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-//             sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-//             sit amet blandit leo lobortis eget.
-//           </Typography>
-//         </AccordionDetails>
-//       </Accordion>
-//         </CardContent>
-//     </Card>
-//     </>
-//   );
-// }
+      .get('http://localhost:5000/assign')
 
-export default function StudentAssignPage(){
-    return (
-        <>
+      .then((response) => {
+
+        // Handle the response data here
+
+        setData(response.data);
+
+        console.log(response.data);
+
+      })
+
+      .catch((error) => {
+
+        // Handle any errors that occurred during the request
+
+        console.error(error);
+
+      });
+
+  }, []);
+
+  const handleClose = () => {
+    setOpenAssignment(null);
+    console.log("Dialog closed")
+  };
+
+  return (
+    <>
       <Helmet>
         <title>students | Learnzy </title>
       </Helmet>
@@ -123,9 +56,49 @@ export default function StudentAssignPage(){
           Your Assignments are here!
         </Typography>
 
-        <StudentAssignCardList assignments={assignments} />
-        {/* <StudentCartWidget /> */}
+        <Grid container spacing={3}>
+          {Array.isArray(data) && data.map((assignment) => (
+            <Grid key={assignment.id} item xs={12} sm={6} md={3}>
+              <Card sx={{ width: 220, height: 220 }}>
+                <CardContent>
+                  <Typography variant="h5" component="div">
+                    {assignment.subject}
+                  </Typography>
+                  <Typography color="text.secondary" sx={{ mt: 1 }}>
+                    {assignment.topic}
+                  </Typography>
+                </CardContent>
+                <CardActions sx={{
+                  position: 'absolute',
+                  bottom: 0,
+                  width: '100%'
+                }}>
+                  <Button size="small" variant='outlined'onClick={() => setOpenAssignment(assignment)}>
+                    Learn More
+                  </Button>
+                  <Dialog open={openAssignment === assignment} onClose={handleClose} aria-labelledby='dialog-title' aria-describedby='dialog-description'>
+                    <DialogTitle id='dialog-title'>{assignment.topic}</DialogTitle>
+                    <DialogContent >
+                      <DialogContentText id='dialog-description'>
+                        {assignment.body}
+                      </DialogContentText>
+
+                    </DialogContent>
+                    <DialogActions>
+                      <Button onClick={handleClose} color="primary" variant="outlined">
+                        Close
+                      </Button>
+
+                    </DialogActions>
+                  </Dialog>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+
+
       </Container>
     </>
-    );
+  );
 }

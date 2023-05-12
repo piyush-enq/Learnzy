@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { id } from "date-fns/locale";
 import Navbar from "./Navbar";
 import "./LandingPage.css";
+
 
 const LandingPage = () => {
   return (
@@ -9,7 +11,7 @@ const LandingPage = () => {
       <img className="shade-attention4-icon" alt="" src="" />
       <img className="shade-attention3-icon" alt="" src="" />
       <img className="shade-navbar-icon" alt="" src="" />
-      <div className="attention-6">
+      <div className="attention-6" id="contact-us">
         <img className="attention-6-child" alt="" src="/rectangle-7@2x.png" />
         <div className="social-media">
           <img className="twitter-icon" alt="" src="/twitter.svg" />
@@ -17,8 +19,9 @@ const LandingPage = () => {
           <img className="facebook-icon" alt="" src="/facebook.svg" />
           <div className="social-media1">{`social media `}</div>
         </div>
-        {/* <div className="admin-login">
-          <button className="admin-login-button">
+        
+        
+           {/* {<button className="admin-login-button">
             <button className="admin-login-button-child" />
 
             <b className="login">
@@ -30,8 +33,8 @@ const LandingPage = () => {
               Login
             </Link>
               </b>
-          </button>
-          <div className="for-developersadmin">For developers/admin</div>
+          </button> 
+        <div className="for-developersadmin">For developers/admin</div>
         </div> */}
         <div className="contact-our-offices-container">
           <p className="contact-our-offices">
@@ -91,13 +94,13 @@ const LandingPage = () => {
         <div className="great-learning">Great learning</div>
         <div className="best-tutoring">Best tutoring</div>
         <div className="great-platform">great platform</div>
-        <div className="tony">Vineet</div>
-        <div className="jenny">Aparna</div>
-        <div className="pepper">Nikita</div>
+        <div className="tony">tony</div>
+        <div className="jenny">Jenny</div>
+        <div className="pepper">pepper</div>
       </div>
       <div className="attention-4">
         <img className="attention-4-child" alt="" src="/rectangle-3@2x.png" />
-        {/* <img className="partners-icon" alt="" src="/partners.svg" /> */}
+        <img className="partners-icon" alt="" src="/partners.svg" />
         <img className="google-icon" alt="" src="/google.svg" />
         <img className="meta-icon" alt="" src="/meta.svg" />
         <img className="linkedin-icon" alt="" src="/linkedin.svg" />

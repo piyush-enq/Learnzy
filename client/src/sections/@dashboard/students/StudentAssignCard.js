@@ -36,6 +36,7 @@ StudentAssignCard.propTypes = {
 export default function StudentAssignCard({ assignment }) {
   const { id, subject, topic, body } = assignment;
   const [open, setOpen] = useState(false);
+
   // const [formSubmitted, setFormSubmitted] = useState(false);
   // const [showSnackbar, setShowSnackbar] = useState(false);
 
@@ -56,20 +57,33 @@ export default function StudentAssignCard({ assignment }) {
   // }
 
   return (
-    <Card sx={{ maxWidth: 275 }}>
+    <Card sx={{ width: 220, height: 220 }}>
       <CardContent>
         <Typography variant="h5" component="div">
           {subject}
         </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        <Typography color="text.secondary" sx={{ mt: 1 }}>
           {topic}
         </Typography>
-        <Typography variant="body2">
-          {body}
-        </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" variant='outlined'>Done</Button>
+      <CardActions sx={{
+        position: 'absolute',
+        bottom: 0,
+        width: '100%'
+      }}>
+        <Button size="small" variant='outlined' onClick={()=>setOpen(true)}>
+          Learn More
+        </Button>
+        <Dialog open={open} onClose={() => setOpen(false)} aria-labelledby='dialog-title' aria-describedby='dialog-description'>
+          <DialogTitle id='dialog-title'>{topic}</DialogTitle>
+          <DialogContent >
+            <DialogContentText id='dialog-description'>
+              {body}
+            </DialogContentText>
+            
+          </DialogContent>
+
+        </Dialog>
       </CardActions>
     </Card>
   );
