@@ -1,7 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import {Link, useHistory} from 'react-router-dom';
 
 // @mui
 import {
@@ -42,9 +43,10 @@ const TABLE_HEAD = [
   { id: 'city', label: 'City', alignRight: false },
   { id: 'subject', label: 'Subject', alignRight: false },
 //   { id: 'isVerified', label: 'Verified', alignRight: false },
-  { id: 'select', label: 'Select', alignRight:false },
+  { id: 'select', label: 'Select', align:'center' }
   // { id: '' },
 ];
+
 
 // ----------------------------------------------------------------------
 
@@ -76,6 +78,8 @@ function applySortFilter(array, comparator, query) {
   }
   return stabilizedThis.map((el) => el[0]);
 }
+
+
 
 export default function StudentTutorListPage() {
   const [open, setOpen] = useState(null);
@@ -118,7 +122,7 @@ export default function StudentTutorListPage() {
     setSelected([]);
   };
 
-  const handleClick = (event, name) => {
+  const handleCheckBox = (event, name) => {
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
     if (selectedIndex === -1) {
@@ -133,6 +137,8 @@ export default function StudentTutorListPage() {
     setSelected(newSelected);
   };
 
+  
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -146,6 +152,21 @@ export default function StudentTutorListPage() {
     setPage(0);
     setFilterName(event.target.value);
   };
+
+
+  const [newTableData, setNewTableData] = useState([]);
+
+  const handleAdd = (row) => {
+    const { name, city, subject } = row; // extract necessary data
+    const newData =  { name, city, subject }; // add to new table data
+    const updatedData = [...newTableData, newData]
+    localStorage.setItem('newTableData', JSON.stringify(updatedData));
+    setNewTableData(updatedData);
+  };
+
+  
+  
+
 
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - USERLIST.length) : 0;
 
@@ -172,17 +193,12 @@ export default function StudentTutorListPage() {
   }
 `;
 
-const handleApproveTeacher=(id)=>{
 
-}
+return (
 
-const handleDenyTeacher=(id)=>{
-
-}
-  return (
     <>
       <Helmet>
-        <title> Learnzy | Tutor Review </title>
+        <title> Tutor List </title>
       </Helmet>
 
       <Container>
@@ -212,13 +228,13 @@ const handleDenyTeacher=(id)=>{
                 />
                 <TableBody>
                   {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, subject, status, city, avatarUrl, isVerified } = row;
+                    const { id, name, subject, select, city, avatarUrl } = row;
                     const selectedUser = selected.indexOf(name) !== -1;
 
                     return (
                       <TableRow hover key={id} tabIndex={-1} selected={selectedUser}>
                         <TableCell padding="checkbox">
-                          <Checkbox checked={selectedUser} onChange={(event) => handleClick(event, name)} />
+                          <Checkbox checked={selectedUser} onChange={(event) => handleCheckBox(event, name)} />
                         </TableCell>
 
                         <TableCell component="th" scope="row" padding="none">
@@ -236,10 +252,10 @@ const handleDenyTeacher=(id)=>{
 
                         {/* <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell> */}
 
-                        <TableCell align="center">
+                        <TableCell align="right">
                           <Stack direction="row" alignItems="center" justifyContent="space-between">
-                            <CustomButton onClick={()=>alert('Approved!')}>
-                              Select
+                            <CustomButton onClick = {() => handleAdd(row)}>
+                              Add to My Tutors
                             </CustomButton>
                             {/* <Button variant="outlined" color="error" onClick={()=>alert('Denied!')}>
                               Deny
