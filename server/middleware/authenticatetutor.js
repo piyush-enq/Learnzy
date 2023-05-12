@@ -1,6 +1,11 @@
  const jwt  = require('jsonwebtoken');
-
+ const cookieParser = require('cookie-parser');
  const Tutor = require("../model/tutorSchema");
+ const express = require('express');
+ const app = express();
+
+// Use the cookie-parser middleware
+app.use(cookieParser());
 
 const Authenticate = async(req,res,next)=>{
     try{

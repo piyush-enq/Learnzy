@@ -14,6 +14,10 @@ app.use(require('./router/auth'));
 app.use(require('./router/authtutor')); 
 app.use(require('./router/authadmin'));
 app.use(require('./router/assignments'));
+app.use(require('./tutors/editprofile'));
+app.use(require('./middleware/authenticatetutor'));
+
+
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
