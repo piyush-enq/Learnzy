@@ -1,3 +1,4 @@
+
 import { useState, props } from 'react';
 
 import {
@@ -17,15 +18,38 @@ import { bgcolor, height } from '@mui/system';
 import { purple } from '@mui/material/colors';
 
 
-export default function TutorProfilePage() {
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
+
+
+export default function TutorProfilePage()
+
+{
     const ProfilePic = styled('img')`
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.5);
-  `;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.5);
+    `;
 
+    // const [selectedSubjects, setSelectedSubjects] = useState([]);
+
+    // const handleSubjectChange = (event) => {
+    //     const { value, checked } = event.target;
+    //     if (checked) {
+    //       setSelectedSubjects((prevSelectedSubjects) => [
+    //         ...prevSelectedSubjects,
+    //         value,
+    //       ]);
+    //     } else {
+    //       setSelectedSubjects((prevSelectedSubjects) =>
+    //         prevSelectedSubjects.filter((subject) => subject !== value)
+    //       );
+    //     }
+    //   };
+
+    
     ProfilePic.defaultProps = {
         src: '/assets/images/students/student_7.jpg',
     };
@@ -43,21 +67,22 @@ export default function TutorProfilePage() {
 
     const StyledEditButton = styled('button')(({ theme }) => ({
         margin: 4,
-        backgroundColor: '#a200ff'
+        backgroundColor: '#a200ff' 
     }));
 
 
     const [teacher, setTeacher] = useState({
         name: 'Ramya Priya',
-        class: '11th Grade',
         gender: 'Female',
+        subject: 'Mathematics',
+        email:"ramyapriyas@gmail.com",
+        class: '11',
         age: '17',
-        subject: 'MATHEMATICS',
-        bio: 'My self Aakash Sharma, I am passionate and experienced math teacher with 8 years of experience. My love for mathematics started at a young age. After completing my studies, I began my career as a math teacher, and since then, I have been inspiring and motivating students to love and appreciate math.',
-        rate: '300',
-        experience: '8 years',
+        gpa: '8.0',
+        medium: 'English',
         profilePic: null,
     });
+
 
     const [isEditMode, setIsEditMode] = useState(false);
 
@@ -74,9 +99,15 @@ export default function TutorProfilePage() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        // const updatedTeacher = {
+        //     ...teacher,
+        //     subjects: selectedSubjects,
+        // };
         console.log(teacher);
         setIsEditMode(false);
     };
+
+
 
     const handleEditClick = () => {
         setIsEditMode(true);
@@ -115,18 +146,6 @@ export default function TutorProfilePage() {
                     </Grid>
                     <Grid xs={12} sm={6} item>
                         <TextField
-                            type='number'
-                            name='class'
-                            label='Class'
-                            placeholder='Enter Class'
-                            variant='outlined'
-                            value={teacher.number}
-                            fullWidth
-                            onChange={handleInputChange}
-                        />
-                    </Grid>
-                    <Grid xs={12} sm={6} item>
-                        <TextField
                             type='text'
                             name='gender'
                             label='Gender'
@@ -137,19 +156,28 @@ export default function TutorProfilePage() {
                             onChange={handleInputChange}
                         />
                     </Grid>
-                    <Grid xs={12} sm={6} item>
-                        <TextField
-                            type='number'
-                            name='age'
-                            label='Age'
-                            placeholder='Enter Age'
-                            variant='outlined'
-                            value={teacher.age}
-                            fullWidth
-                            onChange={handleInputChange}
-                        />
+                    {/* <Grid xs={12} sm={6} item>
+                        <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                            Select Subjects
+                        </Typography>  
                     </Grid>
-                    <Grid xs={12} sm={6} item>
+                     <Grid xs={12} sm={6} item>
+                        <label htmlFor="subject">Subject</label>
+                        <select
+                            name="subject"
+                            id="subject"
+                            value={teacher.subject}
+                            onChange={handleInputChange}
+                            aria-label="Select a subject"
+                        >
+                            <option value="">-- Select a subject --</option>
+                            <option value="math">Mathematics</option>
+                            <option value="science">Science</option>
+                            <option value="english">English</option>
+                            <option value="history">History</option>
+                        </select>
+                    </Grid>  */}
+                     <Grid xs={12} sm={6} item>
                         <TextField
                             type='text'
                             name='subject'
@@ -160,15 +188,56 @@ export default function TutorProfilePage() {
                             fullWidth
                             onChange={handleInputChange}
                         />
+                    </Grid> 
+                    <Grid xs={12} sm={6} item>
+                        <TextField
+                            type='email'
+                            label='email'
+                            name='email'
+                            placeholder='Enter email'
+                            variant='outlined'
+                            value={teacher.email}
+                            fullWidth
+                            
+                            onChange={handleInputChange}
+                        />
                     </Grid>
                     <Grid xs={12} sm={6} item>
                         <TextField
-                            type='text'
-                            name='bio'
-                            label='Bio'
-                            placeholder='Enter Bio'
+                            type='number'
+                            name='class'
+                            label='Class'
+                            placeholder='Enter Class'
                             variant='outlined'
-                            value={teacher.bio}
+                            value={teacher.class}
+                            fullWidth
+                            inputProps={{min:1,max:12}}
+                            onChange={handleInputChange}
+                        />
+                    </Grid>
+                
+                    <Grid xs={12} sm={6} item>
+                        <TextField
+                            type='number'
+                            name='age'
+                            label='Age'
+                            placeholder='Enter Age'
+                            variant='outlined'
+                            value={teacher.age}
+                            fullWidth
+                            inputProps={{min:1,max:150}}
+                            onChange={handleInputChange}
+                        />
+                    </Grid>
+                    
+                    <Grid xs={12} sm={6} item>
+                        <TextField
+                            type='number'
+                            name='gpa'
+                            label='GPA'
+                            placeholder='Enter GPA'
+                            variant='outlined'
+                            value={teacher.gpa}
                             fullWidth
                             onChange={handleInputChange}
                         />
@@ -176,16 +245,16 @@ export default function TutorProfilePage() {
                     <Grid xs={12} sm={6} item>
                         <TextField
                             type='text'
-                            name='experience'
-                            label='Experience'
-                            placeholder='Enter Experience'
+                            name='medium'
+                            label='Medium of Instruction'
+                            placeholder='Enter Medium of instruction'
                             variant='outlined'
-                            value={teacher.experience}
+                            value={teacher.medium}
                             fullWidth
                             onChange={handleInputChange}
                         />
                     </Grid>
-                    <Grid xs={12} sm={6} item>
+                    {/* <Grid xs={12} sm={6} item>
                         <TextField
                             type='number'
                             name='rate'
@@ -196,7 +265,7 @@ export default function TutorProfilePage() {
                             fullWidth
                             onChange={handleInputChange}
                         />
-                    </Grid>
+                    </Grid> */}
                     <Grid xs={12} sm={12} item>
                         <Button
                             sx={{ margin: 2,padding:1 , justifyContent:'left', backgroundColor: '#a200ff' }}
@@ -216,7 +285,7 @@ export default function TutorProfilePage() {
     const TeacherDetails = () => {
         return (
             <Container>
-                <Typography variant="h4" sx={{ mb: 5 }}>
+                <Typography variant="h3" sx={{ mb: 5 }}>
                     My Profile
                 </Typography>
                 <Grid container spacing={2} alignItems='center'>
@@ -227,25 +296,74 @@ export default function TutorProfilePage() {
                         <Typography variant='h3' sx={{ mb: 1, color: '#9100e6' }} >
                             {teacher.name}
                         </Typography>
-                        <Typography variant='h6' sx={{ fontWeight: 500 }}>
-                            {teacher.class}
+                        <Typography variant='h6' >
+                            {teacher.age} yrs
                         </Typography>
-                        <Typography variant='h6' sx={{ fontWeight: 500 }}>
+                        <Typography variant='h6' >
                             {teacher.gender}, India
                         </Typography>
-                        <Typography variant='h5'>
+                        <Typography variant='h5' >
+                            {teacher.email}
+                        </Typography>
+                        {/* <Typography variant='h5'>
                             {teacher.experience} of {teacher.subject} 
-                        </Typography>
+                        </Typography> */}
                         <Typography variant='h5' sx={{ fontWeight: 700, marginTop: 2 }} >
-                            Bio
+                            {/* Bio */}
                         </Typography>
-                        <Typography variant='body2' >
+                        {/* <Typography variant='body2' >
                             {teacher.bio}
-                        </Typography>
+                        </Typography> */}
                     </Grid>
                 </Grid>
-                <Grid container spacing={4} sx={{ marginTop: 2 }} justifyContent="ceter" alignItems="center">
+                {/* <Grid container spacing={4} sx={{ margin:2 }} justifyContent="ceter" alignItems="center">
                     <Grid item xs={3} > 
+                        <Typography variant='h3'>
+                            {teacher.class}
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={3} >
+                        <Typography variant='h3'>
+                            {teacher.class}th Grade
+                        </Typography>
+                        <Typography variant='h4' color='#9100e6'>
+                            Class/Std
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={3} >
+                        <Typography variant='h3'>
+                            {teacher.gpa}
+                        </Typography>
+                        <Typography variant='h5' color='#9100e6'>
+                            GPA
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={3}>
+                   
+                    <Typography variant='h3'>
+                        {teacher.subject}
+                       
+                    </Typography>
+                    <Typography variant='h5' color='#9100e6'>
+                        Subjects
+                    </Typography>
+                 
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Typography variant='h3'>
+                            {teacher.medium}
+                        </Typography>
+                        <Typography variant='h5' color='#9100e6'>
+                            Medium of instruction
+                        </Typography>
+                    </Grid>
+                </Grid> */}
+                
+                <Grid container spacing={4} sx={{ marginTop: 2 }} justifyContent="ceter" alignItems="center">
+                    <Grid item xs={3} >
+                        <Typography variant='button' sx={{ fontWeight: 200 }}>
+                            {teacher.gender}, {teacher.age} Years
+                        </Typography>
                         <Typography variant='h6'>
                             {teacher.subject}
                         </Typography>
@@ -276,7 +394,7 @@ export default function TutorProfilePage() {
                     </Grid>
                 </Grid>
                 <Button
-                    sx={{ margin: 2, alignItems: 'left', backgroundColor: '#a200ff' }}
+                    sx={{ margin: 0, alignItems: 'left', backgroundColor: '#a200ff', fontSize:'15px'}}
                     variant="contained"
                     onClick={handleEditClick}>
                     Edit Profile
@@ -300,4 +418,6 @@ export default function TutorProfilePage() {
             )}
         </Container>
     );
+
 }
+    
