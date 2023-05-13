@@ -2,7 +2,9 @@ import { Link, useLocation } from "react-router-dom";
 import {Helmet} from 'react-helmet-async';
 import{ filter} from 'lodash';
 import{sentanceCase} from 'change-case';
-import{useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
+import { Button, Container, Stack, Typography, Card, TableContainer, Table, TableBody, TableRow, TableCell, Checkbox } from "@mui/material";
+
 
 
 // components
@@ -24,9 +26,8 @@ import palette from '../theme/palette';
 const TABLE_HEAD = [
     { id: 'name', label: 'Name', alignRight: false },
     { id: 'city', label: 'City', alignRight: false },
-    { id: 'subject', label: 'Subject', alignRight: false },
-    { id: 'remove', label: 'Remove', alignRight:false }
-]
+    { id: 'subject', label: 'Subject', alignRight: false }
+];
 
 // --------------------------------------------------------
 // sorting functions
