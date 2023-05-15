@@ -3,8 +3,8 @@ import {Helmet} from 'react-helmet-async';
 import{ filter} from 'lodash';
 import{sentanceCase} from 'change-case';
 import React, {useState, useEffect} from 'react';
-import { Button, Container, Stack, Typography, Card, TableContainer, Table, TableBody, TableRow, TableCell, Checkbox } from "@mui/material";
-
+import { Button, Container, Stack, Typography, Card, TableContainer, Table, TableBody, TableRow, TableCell, Checkbox, TablePagination } from "@mui/material";
+import axios from 'axios';
 
 
 // components
@@ -223,8 +223,8 @@ function descendingComparator(a, b, orderBy) {
                                             <Checkbox   checked={selectedUser} onChange={(event) => handleCheckBox(event, name)} />
                                         </TableCell>
                                         <TableCell>{name}</TableCell>
-                                        <TableCell>{city}</TableCell>
-                                        <TableCell>{subject}</TableCell>
+                                        <TableCell>{phone}</TableCell>
+                                        <TableCell>{email}</TableCell>
                                     </TableRow>
                                 );
                             })}
