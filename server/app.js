@@ -62,6 +62,49 @@ app.get('/trial', async (req, res) => {
     }
 })
 
+// --------------------------------------------------------------------------------------------------
+//render the list of tutors to the table in student dashboard
+app.get('/getlist', async (req, res) => {
+    try {
+      // Get the list of tutors waiting for approval from temporary storage
+      const tutors = await Tutor.find({}).exec()
+      res.status(200).json(tutors)
+    } 
+    catch (err) {
+      console.error(err)
+      res.status(500).json({ message: 'Internal server error' })
+    }
+  })
+
+// --------------------------------------------------------------------------------------------------
+
+//get the list of my tutors stored in the database
+const MyTutor = require('./model/myTutorSchema');
+app.post('/add-tutor', (req, res) => {
+    const newTutor =  MyTutor({
+      name: req.body.name,
+      phone: req.body.phone,
+      email: req.body.email
+    });
+  
+    newTutor.save()
+      .then(() => res.json('Tutor added successfully'))
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
+
+  app.get('/getMyTutorlist', async (req, res) => {
+    try {
+      // Get the list of tutors waiting for approval from temporary storage
+      const tutors = await MyTutor.find({}).exec()
+      res.status(200).json(tutors)
+    } 
+    catch (err) {
+      console.error(err)
+      res.status(500).json({ message: 'Internal server error' })
+    }
+  })
+
+
 
 app.listen(PORT,()=>{
 console.log(`waah modi ji waah server is running at port no ${PORT}`);

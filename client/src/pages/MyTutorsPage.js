@@ -24,9 +24,9 @@ import palette from '../theme/palette';
 
 // Displaying the list of selected tutor
 const TABLE_HEAD = [
-    { id: 'name', label: 'Name', alignRight: false },
-    { id: 'city', label: 'City', alignRight: false },
-    { id: 'subject', label: 'Subject', alignRight: false }
+  { id: 'name', label: 'Name', alignRight: false },
+  { id: 'phone', label: 'Phone', alignRight: false },
+  { id: 'email', label: 'email', alignRight: false }
 ];
 
 // --------------------------------------------------------
@@ -131,15 +131,23 @@ function descendingComparator(a, b, orderBy) {
       setFilterName(event.target.value);
     };
 
-    const [newTableData, setNewTableData] = useState([]);
+    const [tableData, setTableData] = useState([]);
 
-    // retrieve the locally stored data
     useEffect(() => {
-      const storedData = JSON.parse(localStorage.getItem('newTableData'));
-      if (storedData) {
-        setNewTableData(storedData);
-      }
-    },[]);
+      axios.get('/getMyTutorlist').then((response) => {
+        setTableData(response.data);
+      });
+    }, []);
+
+    // const [newTableData, setNewTableData] = useState([]);
+
+    // // retrieve the locally stored data
+    // useEffect(() => {
+    //   const storedData = JSON.parse(localStorage.getItem('newTableData'));
+    //   if (storedData) {
+    //     setNewTableData(storedData);
+    //   }
+    // },[]);
 
     // remove from local once the component is unmounted
     useEffect(() => {
@@ -152,7 +160,7 @@ function descendingComparator(a, b, orderBy) {
   
     const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - USERLIST.length) : 0;
   
-    const filteredUsers = applySortFilter(USERLIST, getComparator(order, orderBy), filterName);
+    const filteredUsers = applySortFilter(tableData, getComparator(order, orderBy), filterName);
   
     const isNotFound = !filteredUsers.length && !!filterName;
   
@@ -205,8 +213,8 @@ function descendingComparator(a, b, orderBy) {
                           onSelectAllClick = {handleSelectAllClick}
                         />
                         <TableBody>
-                            {newTableData.map((row, index) => {
-                                const {id, name, subject, select, city, avatarUrl} = row;
+                            {tableData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                                const {id, name, phone, select, email} = row;
                                 const selectedUser = selected.indexOf(name) !== -1;
 
                                 return(
@@ -218,13 +226,27 @@ function descendingComparator(a, b, orderBy) {
                                         <TableCell>{city}</TableCell>
                                         <TableCell>{subject}</TableCell>
                                     </TableRow>
-                                )
+                                );
                             })}
+                            {emptyRows > 0 && (
+                              <TableRow style={{ height: 53 * emptyRows }}>
+                                <TableCell colSpan={6} />
+                            </TableRow>
+                            )}
                         </TableBody>
 
                     
                     </Table>
                 </TableContainer>
+                <TablePagination
+                 rowsPerPageOptions={[5, 10, 25]}
+                 component="div"
+                 count={tableData.length}
+                 rowsPerPage={rowsPerPage}
+                 page={page}
+                 onPageChange={handleChangePage}
+                 onRowsPerPageChange={handleChangeRowsPerPage}
+                />
 
             </Card>
 

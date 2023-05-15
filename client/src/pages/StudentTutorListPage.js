@@ -3,6 +3,7 @@ import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState, useEffect } from 'react';
 import {Link, useHistory} from 'react-router-dom';
+import axios from 'axios';
 
 import {
   Alert,
@@ -40,8 +41,8 @@ import palette from '../theme/palette';
 
 const TABLE_HEAD = [
   { id: 'name', label: 'Name', alignRight: false },
-  { id: 'city', label: 'City', alignRight: false },
-  { id: 'subject', label: 'Subject', alignRight: false },
+  { id: 'phone', label: 'Phone', alignRight: false },
+  { id: 'email', label: 'Email', alignRight: false },
 //   { id: 'isVerified', label: 'Verified', alignRight: false },
   { id: 'select', label: 'Select', alignRight: false }
   // { id: '' },
@@ -106,7 +107,7 @@ export default function StudentTutorListPage() {
   // select all
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = USERLIST.map((n) => n.name);
+      const newSelecteds = tableData.map((n) => n.name);
       setSelected(newSelecteds);
       return;
     }
@@ -144,16 +145,34 @@ export default function StudentTutorListPage() {
     setFilterName(event.target.value);
   };
 
+  const [tableData, setTableData] = useState([]);
 
-  const [newTableData, setNewTableData] = useState([]);
+  useEffect(() => {
+    axios.get('/getlist').then((response) => {
+      setTableData(response.data);
+    });
+  }, []);
 
-  const handleAdd = (row) => {
-    const { name, city, subject } = row; // extract necessary data
-    const newData =  { name, city, subject }; // add to new table data
-    const updatedData = [...newTableData, newData]
-    localStorage.setItem('newTableData', JSON.stringify(updatedData));
-    setNewTableData(updatedData);
+
+  const handleAddTutor = (row) => {
+    const { name, phone, email } = row; // extract necessary data
+    const newTutor = { name, phone, email }; // create new tutor object
+  
+    axios.post('/add-tutor', newTutor)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
   };
+
+
+  // const [newTableData, setNewTableData] = useState([]);
+
+  // const handleAdd = (row) => {
+  //   const { name, city, subject } = row; // extract necessary data
+  //   const newData =  { name, city, subject }; // add to new table data
+  //   const updatedData = [...newTableData, newData]
+  //   localStorage.setItem('newTableData', JSON.stringify(updatedData));
+  //   setNewTableData(updatedData);
+  // };
 
   
   
@@ -161,7 +180,7 @@ export default function StudentTutorListPage() {
 
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - USERLIST.length) : 0;
 
-  const filteredUsers = applySortFilter(USERLIST, getComparator(order, orderBy), filterName);
+  const filteredUsers = applySortFilter(tableData, getComparator(order, orderBy), filterName);
 
   const isNotFound = !filteredUsers.length && !!filterName;
 
@@ -212,40 +231,37 @@ return (
                   order={order}
                   orderBy={orderBy}
                   headLabel={TABLE_HEAD}
-                  rowCount={USERLIST.length}
+                  rowCount={tableData.length}
                   numSelected={selected.length}
                   onRequestSort={handleRequestSort}
                   onSelectAllClick={handleSelectAllClick}
                 />
                 <TableBody>
-                  {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, subject, select, city, avatarUrl } = row;
+                  {tableData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                    const { id, name, phone,email } = row;
                     const selectedUser = selected.indexOf(name) !== -1;
 
                     return (
                       <TableRow hover key={id} tabIndex={-1} selected={selectedUser}>
-                        <TableCell padding="checkbox">
-                          <Checkbox checked={selectedUser} onChange={(event) => handleCheckBox(event, name)} />
-                        </TableCell>
+                        
 
                         <TableCell component="th" scope="row" padding="none">
                           <Stack direction="row" alignItems="center" spacing={2}>
-                            <Avatar sx={{m:2}} alt={name} src={avatarUrl} />
                             <Typography variant="subtitle2" noWrap>
                               {name}
                             </Typography>
                           </Stack>
                         </TableCell>
 
-                        <TableCell align="left">{city}</TableCell>
+                        <TableCell align="left">{phone}</TableCell>
 
-                        <TableCell align="left">{subject}</TableCell>
+                        <TableCell align="left">{email}</TableCell>
 
                         {/* <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell> */}
 
                         <TableCell align="right">
                           <Stack direction="row" alignItems="center" justifyContent="space-between">
-                            <CustomButton onClick = {() => handleAdd(row)}>
+                            <CustomButton onClick = {() => handleAddTutor(row)}>
                               Add to My Tutors
                             </CustomButton>
                             {/* <Button variant="outlined" color="error" onClick={()=>alert('Denied!')}>
@@ -309,7 +325,7 @@ return (
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
             component="div"
-            count={USERLIST.length}
+            count={tableData.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}
